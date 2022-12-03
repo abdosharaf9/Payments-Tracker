@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        tools:context=".ui.AddPaymentActivity">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.01" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.2" />
+
+        <TextView
+            android:id="@+id/tvAddTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add new payment"
+            android:textColor="#000000"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline1" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            android:overScrollMode="ifContentScrolls"
+            app:layout_constraintBottom_toTopOf="@+id/btnSave"
+            app:layout_constraintTop_toTopOf="@+id/guideline6"
+            tools:layout_editor_absoluteX="16dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tvNameLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/etName"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/etName" />
+
+                <EditText
+                    android:id="@+id/etName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:background="@drawable/et_background"
+                    android:hint="Enter the name"
+                    android:inputType="text"
+                    android:minHeight="45dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tvDescriptionLabel"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvValueLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Value"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/etValue"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/etValue" />
+
+                <EditText
+                    android:id="@+id/etValue"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/et_background"
+                    android:hint="Enter the value"
+                    android:inputType="numberDecimal"
+                    android:minHeight="45dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tvDescriptionLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/etName" />
+
+                <TextView
+                    android:id="@+id/tvDescriptionLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Description"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/etDescription"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/etDescription" />
+
+                <EditText
+                    android:id="@+id/etDescription"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/et_background"
+                    android:hint="Enter the Description (optional)"
+                    android:inputType="textMultiLine"
+                    android:minHeight="45dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tvDescriptionLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/etValue" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSave"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:background="@drawable/btn_background"
+            app:layout_constraintBottom_toTopOf="@+id/guideline7"
+            app:layout_constraintEnd_toStartOf="@+id/btnCancel"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnCancel"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:background="@drawable/btn_background"
+            app:layout_constraintBottom_toTopOf="@+id/guideline7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btnSave" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.9" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

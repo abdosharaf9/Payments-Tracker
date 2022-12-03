@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/payment_item_background"
+        android:elevation="3dp">
+
+        <TextView
+            android:id="@+id/tvItemNameLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvItemName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="payment 1"
+            app:layout_constraintBottom_toBottomOf="@+id/tvItemNameLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvItemNameLabel" />
+
+        <TextView
+            android:id="@+id/tvItemValueLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Value"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvItemName" />
+
+        <TextView
+            android:id="@+id/tvItemValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="value 1"
+            app:layout_constraintBottom_toBottomOf="@+id/tvItemValueLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvItemValueLabel" />
+
+        <TextView
+            android:id="@+id/tvItemDescriptionLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Description"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvItemValue" />
+
+        <TextView
+            android:id="@+id/tvItemDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="null"
+            app:layout_constraintBottom_toBottomOf="@+id/tvItemDescriptionLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvItemDescriptionLabel" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

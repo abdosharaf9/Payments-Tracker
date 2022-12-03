@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Android_with_Kotlin/PaymentsCounter/app/src/main/res/drawable/btn_background.xml" value="0.3505" />
+        <entry key="..\:/Android_with_Kotlin/PaymentsCounter/app/src/main/res/drawable/et_background.xml" value="0.3675" />
+        <entry key="..\:/Android_with_Kotlin/PaymentsCounter/app/src/main/res/drawable/payment_item_background.xml" value="0.3505" />
+        <entry key="..\:/Android_with_Kotlin/PaymentsCounter/app/src/main/res/layout/activity_add_payment.xml" value="0.3388888888888889" />
+        <entry key="..\:/Android_with_Kotlin/PaymentsCounter/app/src/main/res/layout/activity_main.xml" value="0.3388888888888889" />
+        <entry key="..\:/Android_with_Kotlin/PaymentsCounter/app/src/main/res/layout/activity_payments_list.xml" value="0.3388888888888889" />
+        <entry key="..\:/Android_with_Kotlin/PaymentsCounter/app/src/main/res/layout/payment_item.xml" value="0.365625" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
