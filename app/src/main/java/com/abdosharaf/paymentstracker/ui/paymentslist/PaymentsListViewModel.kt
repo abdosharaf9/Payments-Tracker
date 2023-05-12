@@ -1,4 +1,4 @@
-package com.abdosharaf.paymentstracker.ui
+package com.abdosharaf.paymentstracker.ui.paymentslist
 
 import android.app.Application
 import androidx.lifecycle.LiveData

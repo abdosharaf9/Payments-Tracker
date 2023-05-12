@@ -1,4 +1,4 @@
-package com.abdosharaf.paymentstracker.ui
+package com.abdosharaf.paymentstracker.ui.addnew
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,6 +10,8 @@ import com.abdosharaf.paymentstracker.databinding.ActivityAddPaymentBinding
 import com.abdosharaf.paymentstracker.db.PaymentDatabase
 import com.abdosharaf.paymentstracker.models.PaymentItem
 import com.abdosharaf.paymentstracker.repositories.PaymentsRepository
+import com.abdosharaf.paymentstracker.ui.paymentslist.PaymentsListViewModel
+import com.abdosharaf.paymentstracker.ui.paymentslist.PaymentsViewModelFactory
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

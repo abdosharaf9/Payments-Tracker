@@ -1,6 +1,6 @@
-package com.abdosharaf.paymentstracker.ui
+package com.abdosharaf.paymentstracker.ui.paymentslist
 
-import android.app.AlertDialog
+/*import android.app.AlertDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,6 +12,9 @@ import com.abdosharaf.paymentstracker.R
 import com.abdosharaf.paymentstracker.databinding.ActivityPaymentsListBinding
 import com.abdosharaf.paymentstracker.db.PaymentDatabase
 import com.abdosharaf.paymentstracker.repositories.PaymentsRepository
+import com.abdosharaf.paymentstracker.ui.MainActivity
+import com.abdosharaf.paymentstracker.ui.paymentslist.PaymentsRvAdapter
+import com.abdosharaf.paymentstracker.ui.addnew.AddPaymentActivity
 import kotlinx.coroutines.*
 
 class PaymentsListActivity : AppCompatActivity() {
@@ -91,7 +94,7 @@ class PaymentsListActivity : AppCompatActivity() {
             viewModel.setTheList()
         }
     }
-}
+}*/
 
 /*val list = listOf(
             PaymentItem("pay 1", "10", "description", null),

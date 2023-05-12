@@ -1,6 +1,6 @@
-package com.abdosharaf.paymentstracker.ui
+package com.abdosharaf.paymentstracker.ui.paymentslist
 
-import android.view.LayoutInflater
+/*import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
@@ -52,4 +52,4 @@ class PaymentsRvAdapter() : RecyclerView.Adapter<PaymentsRvAdapter.MyViewHolder>
     }
 
     override fun getItemCount(): Int = differ.currentList.size
-}
+}*/
