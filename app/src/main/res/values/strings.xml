@@ -1,6 +1,17 @@
 <resources>
     <string name="app_name">Payments Tracker</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="app_logo">App logo</string>
+    <string name="image">Image</string>
+    <string name="value">Value</string>
+    <string name="description">Description</string>
+    <string name="delete_this_item">Delete This Item</string>
+    <string name="all_payments">All Payments</string>
+    <string name="delete_all">Delete All</string>
+    <string name="add_new_payment">Add New Payment</string>
+    <string name="name">Name</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="enter_the_name">Enter the name</string>
+    <string name="enter_the_value">Enter the value</string>
+    <string name="enter_the_description_optional">Enter the Description (optional)</string>
 </resources>

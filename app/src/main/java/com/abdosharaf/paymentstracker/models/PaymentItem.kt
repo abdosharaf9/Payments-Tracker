@@ -6,10 +6,10 @@ import java.io.Serializable
 
 @Entity(tableName = "payments")
 data class PaymentItem(
-    val name : String,
-    val value : String,
-    val desc : String?,
+    val name: String,
+    val value: String,
+    val desc: String?,
     @PrimaryKey(autoGenerate = true)
-    val id : Int?
+    val id: Long = 0L
 ) : Serializable
 

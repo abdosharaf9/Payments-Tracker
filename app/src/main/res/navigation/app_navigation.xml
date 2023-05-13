@@ -13,10 +13,22 @@
         <action
             android:id="@+id/action_listFragment_to_addNewFragment"
             app:destination="@id/addNewFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_singlePaymentFragment"
+            app:destination="@id/singlePaymentFragment" />
     </fragment>
     <fragment
         android:id="@+id/addNewFragment"
         android:name="com.abdosharaf.paymentstracker.ui.addnew.AddNewFragment"
         android:label="AddNewFragment"
         tools:layout="@layout/fragment_add_new"/>
+    <fragment
+        android:id="@+id/singlePaymentFragment"
+        android:name="com.abdosharaf.paymentstracker.ui.singlepayment.SinglePaymentFragment"
+        android:label="SinglePaymentFragment"
+        tools:layout="@layout/fragment_single_payment">
+        <argument
+            android:name="id"
+            app:argType="long" />
+    </fragment>
 </navigation>

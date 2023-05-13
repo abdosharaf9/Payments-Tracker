@@ -1,107 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
-
-    <!--<androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingStart="20dp"
-        android:paddingTop="15dp"
-        android:paddingEnd="20dp"
-        android:paddingBottom="15dp"
-        tools:context=".ui.MainActivity">
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.1" />
-
-        <TextView
-            android:id="@+id/tvSingleItemName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="payment 1"
-            android:textColor="@color/black"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline4" />
-
-        <ImageView
-            android:id="@+id/ivSingleItem"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvSingleItemName"
-            app:srcCompat="@drawable/ic_audit_rafiki" />
-
-        <TextView
-            android:id="@+id/tvSingleItemValueLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Value"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivSingleItem" />
-
-        <TextView
-            android:id="@+id/tvSingleItemValue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="value 1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tvSingleItemValueLabel" />
-
-        <TextView
-            android:id="@+id/tvSingleItemDescriptionLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Description"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvSingleItemValue" />
-
-        <TextView
-            android:id="@+id/tvSingleItemDescription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="null"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tvSingleItemDescriptionLabel" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnDeleteItem"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
-            android:background="@drawable/btn_background"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:text="Delete This Item"
-            app:layout_constraintBottom_toTopOf="@+id/guideline5"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.95" />
-    </androidx.constraintlayout.widget.ConstraintLayout>-->
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -109,15 +8,15 @@
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/myNavHost"
+            android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:name="androidx.navigation.fragment.NavHostFragment"
-            app:navGraph="@navigation/app_navigation"
             app:defaultNavHost="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:navGraph="@navigation/app_navigation" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

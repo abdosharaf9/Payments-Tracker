@@ -1,27 +1,31 @@
 package com.abdosharaf.paymentstracker.ui.paymentslist
 
-import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.abdosharaf.paymentstracker.models.PaymentItem
-import com.abdosharaf.paymentstracker.repositories.PaymentsRepository
+import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class PaymentsListViewModel(private val repository: PaymentsRepository, app: Application) : ViewModel() {
+@HiltViewModel
+class PaymentsListViewModel @Inject constructor(private val repository: PaymentsListRepository) : ViewModel() {
 
-    private val _list = MutableLiveData<List<PaymentItem>>()
-    val list : LiveData<List<PaymentItem>>
-        get() = _list
+    val list = repository.getAllPayments()
 
-    suspend fun setTheList() {
-        _list.value = repository.getAllPayments()
+    private val _itemsDeleted = MutableLiveData(false)
+    val itemsDeleted: LiveData<Boolean>
+        get() = _itemsDeleted
+
+    fun deleteAll() {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteAll()
+        }
+        _itemsDeleted.value = true
     }
 
-    suspend fun addPayment(item : PaymentItem) {
-        repository.addPayment(item)
-    }
-
-    suspend fun deleteAll() {
-        repository.deleteAll()
+    fun resetDelete() {
+        _itemsDeleted.value = false
     }
 }

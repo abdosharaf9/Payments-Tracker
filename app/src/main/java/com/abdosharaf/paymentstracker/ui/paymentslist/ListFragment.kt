@@ -1,25 +1,77 @@
 package com.abdosharaf.paymentstracker.ui.paymentslist
 
+import android.app.AlertDialog
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.abdosharaf.paymentstracker.R
+import com.abdosharaf.paymentstracker.base.BaseFragment
 import com.abdosharaf.paymentstracker.databinding.FragmentListBinding
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
-class ListFragment : Fragment() {
+@AndroidEntryPoint
+class ListFragment : BaseFragment() {
 
     private lateinit var binding: FragmentListBinding
+    private val viewModel: PaymentsListViewModel by viewModels()
+    private val adapter = PaymentsAdapter()
+    private lateinit var dialog: AlertDialog
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentListBinding.inflate(inflater, container, false)
 
-        binding.next.setOnClickListener {
-            findNavController().navigate(R.id.action_listFragment_to_addNewFragment)
+        binding.rvPayments.adapter = adapter
+        viewModel.list.observe(viewLifecycleOwner) { list ->
+            adapter.submitList(list)
+            binding.rvPayments.isVisible = list.isNotEmpty()
+            binding.emptyState.isVisible = list.isEmpty()
         }
 
+        viewModel.itemsDeleted.observe(viewLifecycleOwner){
+            if(it == true){
+                showSuccessToast("You deleted all successfully ♥")
+                viewModel.resetDelete()
+            }
+        }
+
+        initMainClicks()
+
         return binding.root
+    }
+
+    private fun initMainClicks() {
+        adapter.onItemClicked = { item ->
+            findNavController().navigate(
+                ListFragmentDirections.actionListFragmentToSinglePaymentFragment(item.id)
+            )
+        }
+
+        binding.fbAddNewPayment.setOnClickListener {
+            findNavController().navigate(ListFragmentDirections.actionListFragmentToAddNewFragment())
+        }
+
+        dialog = AlertDialog.Builder(requireContext())
+            .setTitle("Alert!!")
+            .setMessage("Are you sure you want to delete all payments?")
+            .setIcon(R.drawable.ic_baseline_pan_tool_24)
+            .setPositiveButton("Yes"){ _, _ ->
+                viewModel.deleteAll()
+            }
+            .setNegativeButton("No") { _, _ ->
+                // Nothing here
+            }
+            .create()
+
+        binding.btnDeleteAll.setOnClickListener {
+            lifecycleScope.launch {
+                dialog.show()
+            }
+        }
     }
 }

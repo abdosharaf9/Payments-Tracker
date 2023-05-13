@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.abdosharaf.paymentstracker.ui.singlepayment.SinglePaymentViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -12,14 +15,117 @@
         android:layout_height="match_parent"
         tools:context=".ui.singlepayment.SinglePaymentFragment">
 
-        <TextView
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Single payment"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <TextView
+            android:id="@+id/tvItemName"
+            style="@style/ItemTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_24dp"
+            android:text="@{viewModel.item.name}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="payment 1" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/_16dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnDeleteItem"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvItemName">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="@dimen/_16dp" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="@dimen/_16dp" />
+
+                <ImageView
+                    android:id="@+id/ivItem"
+                    android:layout_width="@dimen/_300dp"
+                    android:layout_height="@dimen/_300dp"
+                    android:contentDescription="@string/image"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_audit_rafiki" />
+
+                <TextView
+                    android:id="@+id/tvItemValueLabel"
+                    style="@style/label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_24dp"
+                    android:text="@string/value"
+                    app:layout_constraintStart_toStartOf="@+id/guideline8"
+                    app:layout_constraintTop_toBottomOf="@+id/ivItem" />
+
+                <TextView
+                    android:id="@+id/tvItemValue"
+                    style="@style/itemData"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text='@{viewModel.item.value + " EGP"}'
+                    app:layout_constraintEnd_toStartOf="@+id/guideline9"
+                    app:layout_constraintTop_toTopOf="@+id/tvItemValueLabel"
+                    tools:text="120.5 EGP" />
+
+                <TextView
+                    android:id="@+id/tvItemDescriptionLabel"
+                    style="@style/label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16dp"
+                    android:text="@string/description"
+                    app:layout_constraintStart_toStartOf="@+id/guideline8"
+                    app:layout_constraintTop_toBottomOf="@+id/tvItemValue" />
+
+                <TextView
+                    android:id="@+id/tvItemDescription"
+                    style="@style/itemData"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.item.desc}"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline9"
+                    app:layout_constraintTop_toTopOf="@+id/tvItemDescriptionLabel"
+                    tools:text="null" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnDeleteItem"
+            style="@style/mainButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16dp"
+            android:layout_marginEnd="@dimen/_16dp"
+            android:onClick="@{() -> viewModel.deleteItem()}"
+            android:text="@string/delete_this_item"
+            app:layout_constraintBottom_toTopOf="@+id/guideline5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

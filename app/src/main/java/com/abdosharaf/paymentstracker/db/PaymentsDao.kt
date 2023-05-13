@@ -1,5 +1,6 @@
 package com.abdosharaf.paymentstracker.db
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.abdosharaf.paymentstracker.models.PaymentItem
 
@@ -7,10 +8,13 @@ import com.abdosharaf.paymentstracker.models.PaymentItem
 interface PaymentsDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun addPayment(item : PaymentItem)
+    suspend fun addPayment(item: PaymentItem)
 
     @Query("SELECT * FROM payments")
-    suspend fun getAllPayments() : List<PaymentItem>
+    fun getAllPayments(): LiveData<List<PaymentItem>>
+
+    @Query("SELECT * FROM payments WHERE id = :id")
+    suspend fun getSinglePayment(id: Long): PaymentItem
 
     @Query("DELETE FROM payments")
     suspend fun deleteAll()

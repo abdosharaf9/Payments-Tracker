@@ -1,68 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="com.abdosharaf.paymentstracker.models.PaymentItem" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        android:paddingBottom="15dp"
-        android:paddingTop="15dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="@dimen/_8dp"
         android:background="@drawable/payment_item_background"
-        android:elevation="3dp">
+        android:elevation="@dimen/_5dp"
+        android:paddingStart="20dp"
+        android:paddingTop="15dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="15dp">
 
         <TextView
             android:id="@+id/tvItemNameLabel"
+            style="@style/label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Name"
-            android:textColor="@color/black"
-            android:textSize="18sp"
+            android:text="@string/name"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tvItemName"
+            style="@style/itemData"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="payment 1"
+            android:text="@{item.name}"
             app:layout_constraintBottom_toBottomOf="@+id/tvItemNameLabel"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tvItemNameLabel" />
+            app:layout_constraintTop_toTopOf="@+id/tvItemNameLabel"
+            tools:text="payment 1" />
 
         <TextView
             android:id="@+id/tvItemValueLabel"
+            style="@style/label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Value"
-            android:textColor="@color/black"
-            android:textSize="18sp"
+            android:layout_marginTop="@dimen/_8dp"
+            android:text="@string/value"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvItemName" />
 
         <TextView
             android:id="@+id/tvItemValue"
+            style="@style/itemData"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="value 1"
+            android:text='@{item.value + " EGP"}'
             app:layout_constraintBottom_toBottomOf="@+id/tvItemValueLabel"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tvItemValueLabel" />
+            app:layout_constraintTop_toTopOf="@+id/tvItemValueLabel"
+            tools:text="120.5 EGP" />
 
         <TextView
             android:id="@+id/tvItemDescriptionLabel"
+            style="@style/label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Description"
-            android:textColor="@color/black"
-            android:textSize="18sp"
+            android:layout_marginTop="@dimen/_8dp"
+            android:text="@string/description"
+            android:visibility="@{item.desc == null ? View.GONE : View.VISIBLE}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvItemValue" />
 
@@ -70,9 +79,12 @@
             android:id="@+id/tvItemDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="null"
-            app:layout_constraintBottom_toBottomOf="@+id/tvItemDescriptionLabel"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@{item.desc}"
+            android:visibility="@{item.desc == null ? View.GONE : View.VISIBLE}"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tvItemDescriptionLabel" />
+            app:layout_constraintTop_toTopOf="@+id/tvItemDescriptionLabel"
+            tools:text="null" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
