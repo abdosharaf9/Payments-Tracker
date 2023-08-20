@@ -73,5 +73,9 @@ class ListFragment : BaseFragment() {
                 dialog.show()
             }
         }
+
+        binding.btnShowBalance.setOnClickListener {
+            findNavController().navigate(ListFragmentDirections.actionListFragmentToBalanceFragment())
+        }
     }
 }

@@ -84,6 +84,19 @@
             app:layout_constraintBottom_toTopOf="@+id/guideline3"
             app:layout_constraintStart_toStartOf="@+id/guideline" />
 
+        <!-- TODO: Delete this -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnShowBalance"
+            style="@style/mainButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16dp"
+            android:paddingStart="@dimen/_24dp"
+            android:paddingEnd="@dimen/_24dp"
+            android:text="Go to balance"
+            app:layout_constraintBaseline_toBaselineOf="@+id/btnDeleteAll"
+            app:layout_constraintStart_toEndOf="@id/btnDeleteAll" />
+
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fbAddNewPayment"
             android:layout_width="wrap_content"
