@@ -1,12 +1,12 @@
 package com.abdosharaf.paymentstracker.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.abdosharaf.paymentstracker.base.BaseActivity
 import com.abdosharaf.paymentstracker.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     private lateinit var binding: ActivityMainBinding
 

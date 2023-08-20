@@ -2,15 +2,15 @@ package com.abdosharaf.paymentstracker.ui.splash
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import com.abdosharaf.paymentstracker.base.BaseActivity
 import com.abdosharaf.paymentstracker.databinding.ActivitySplashBinding
 import com.abdosharaf.paymentstracker.ui.MainActivity
 
 @SuppressLint("CustomSplashScreen")
-class SplashActivity : AppCompatActivity() {
+class SplashActivity : BaseActivity() {
 
     private lateinit var binding: ActivitySplashBinding
 
