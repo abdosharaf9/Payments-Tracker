@@ -7,7 +7,8 @@ import android.os.Handler
 import android.os.Looper
 import com.abdosharaf.paymentstracker.base.BaseActivity
 import com.abdosharaf.paymentstracker.databinding.ActivitySplashBinding
-import com.abdosharaf.paymentstracker.ui.MainActivity
+import com.abdosharaf.paymentstracker.ui.home.HomeActivity
+import com.abdosharaf.paymentstracker.ui.oldMain.MainActivity
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : BaseActivity() {
@@ -20,7 +21,8 @@ class SplashActivity : BaseActivity() {
         setContentView(binding.root)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            Intent(this, MainActivity::class.java).also { intent ->
+//            Intent(this, MainActivity::class.java).also { intent ->
+            Intent(this, HomeActivity::class.java).also { intent ->
                 startActivity(intent)
                 finish()
             }

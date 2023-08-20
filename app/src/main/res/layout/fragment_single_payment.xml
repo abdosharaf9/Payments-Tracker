@@ -7,13 +7,13 @@
 
         <variable
             name="viewModel"
-            type="com.abdosharaf.paymentstracker.ui.singlepayment.SinglePaymentViewModel" />
+            type="com.abdosharaf.paymentstracker.ui.oldMain.singlepayment.SinglePaymentViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.singlepayment.SinglePaymentFragment">
+        tools:context=".ui.oldMain.singlepayment.SinglePaymentFragment">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline5"

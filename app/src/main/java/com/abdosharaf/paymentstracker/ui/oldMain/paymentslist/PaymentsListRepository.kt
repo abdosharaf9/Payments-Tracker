@@ -1,4 +1,4 @@
-package com.abdosharaf.paymentstracker.ui.paymentslist
+package com.abdosharaf.paymentstracker.ui.oldMain.paymentslist
 
 import com.abdosharaf.paymentstracker.db.PaymentsDao
 import javax.inject.Inject

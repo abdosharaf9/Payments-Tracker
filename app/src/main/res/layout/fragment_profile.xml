@@ -10,14 +10,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        tools:context=".ui.home.fragments.list.ListFragment">
+        tools:context=".ui.home.fragments.profile.ProfileFragment">
 
         <!-- TODO: Update blank fragment layout -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/itemData"
-            android:text="List" />
+            android:text="Profile" />
 
     </LinearLayout>
 </layout>

@@ -10,14 +10,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        tools:context=".ui.home.fragments.list.ListFragment">
+        tools:context=".ui.home.fragments.stats.StatsFragment">
 
         <!-- TODO: Update blank fragment layout -->
         <TextView
+            style="@style/itemData"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/itemData"
-            android:text="List" />
-
+            android:text="Stats" />
     </LinearLayout>
 </layout>

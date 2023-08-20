@@ -1,4 +1,4 @@
-package com.abdosharaf.paymentstracker.ui.paymentslist
+package com.abdosharaf.paymentstracker.ui.oldMain.paymentslist
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

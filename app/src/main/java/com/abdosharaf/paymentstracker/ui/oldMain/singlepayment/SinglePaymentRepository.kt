@@ -1,4 +1,4 @@
-package com.abdosharaf.paymentstracker.ui.singlepayment
+package com.abdosharaf.paymentstracker.ui.oldMain.singlepayment
 
 import com.abdosharaf.paymentstracker.db.PaymentsDao
 import com.abdosharaf.paymentstracker.models.PaymentItem

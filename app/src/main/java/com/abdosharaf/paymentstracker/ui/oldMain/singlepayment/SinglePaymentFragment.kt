@@ -1,4 +1,4 @@
-package com.abdosharaf.paymentstracker.ui.singlepayment
+package com.abdosharaf.paymentstracker.ui.oldMain.singlepayment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -18,7 +18,7 @@ class SinglePaymentFragment : BaseFragment() {
 
     private lateinit var binding: FragmentSinglePaymentBinding
     private val viewModel: SinglePaymentViewModel by viewModels()
-    private val args: SinglePaymentFragmentArgs by navArgs()
+    private val args: com.abdosharaf.paymentstracker.ui.oldMain.singlepayment.SinglePaymentFragmentArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

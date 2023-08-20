@@ -1,4 +1,4 @@
-package com.abdosharaf.paymentstracker.ui.addnew
+package com.abdosharaf.paymentstracker.ui.oldMain.addnew
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

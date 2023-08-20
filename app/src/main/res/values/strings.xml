@@ -16,4 +16,8 @@
     <string name="enter_the_description_optional">Enter the Description (optional)</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">Home</string>
+    <string name="statistics">Statistics</string>
+    <string name="list">List</string>
+    <string name="profile">Profile</string>
 </resources>

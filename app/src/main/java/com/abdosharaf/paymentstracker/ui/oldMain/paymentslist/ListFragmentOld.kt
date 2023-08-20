@@ -1,4 +1,4 @@
-package com.abdosharaf.paymentstracker.ui.paymentslist
+package com.abdosharaf.paymentstracker.ui.oldMain.paymentslist
 
 import android.app.AlertDialog
 import android.os.Bundle
@@ -11,20 +11,20 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.abdosharaf.paymentstracker.R
 import com.abdosharaf.paymentstracker.base.BaseFragment
-import com.abdosharaf.paymentstracker.databinding.FragmentListBinding
+import com.abdosharaf.paymentstracker.databinding.FragmentListOldBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class ListFragment : BaseFragment() {
+class ListFragmentOld : BaseFragment() {
 
-    private lateinit var binding: FragmentListBinding
+    private lateinit var binding: FragmentListOldBinding
     private val viewModel: PaymentsListViewModel by viewModels()
     private val adapter = PaymentsAdapter()
     private lateinit var dialog: AlertDialog
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        binding = FragmentListBinding.inflate(inflater, container, false)
+        binding = FragmentListOldBinding.inflate(inflater, container, false)
 
         binding.rvPayments.adapter = adapter
         viewModel.list.observe(viewLifecycleOwner) { list ->
@@ -48,12 +48,14 @@ class ListFragment : BaseFragment() {
     private fun initMainClicks() {
         adapter.onItemClicked = { item ->
             findNavController().navigate(
-                ListFragmentDirections.actionListFragmentToSinglePaymentFragment(item.id)
+                com.abdosharaf.paymentstracker.ui.oldMain.paymentslist.ListFragmentOldDirections.actionListFragmentToSinglePaymentFragment(
+                    item.id
+                )
             )
         }
 
         binding.fbAddNewPayment.setOnClickListener {
-            findNavController().navigate(ListFragmentDirections.actionListFragmentToAddNewFragment())
+            findNavController().navigate(com.abdosharaf.paymentstracker.ui.oldMain.paymentslist.ListFragmentOldDirections.actionListFragmentToAddNewFragment())
         }
 
         dialog = AlertDialog.Builder(requireContext())
@@ -75,7 +77,7 @@ class ListFragment : BaseFragment() {
         }
 
         binding.btnShowBalance.setOnClickListener {
-            findNavController().navigate(ListFragmentDirections.actionListFragmentToBalanceFragment())
+            findNavController().navigate(com.abdosharaf.paymentstracker.ui.oldMain.paymentslist.ListFragmentOldDirections.actionListFragmentToBalanceFragment())
         }
     }
 }

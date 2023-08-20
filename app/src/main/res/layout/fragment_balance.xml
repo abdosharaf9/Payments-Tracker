@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
-        tools:context=".ui.BalanceFragment">
+        tools:context=".ui.oldMain.BalanceFragment">
 
         <TextView
             style="@style/itemData"

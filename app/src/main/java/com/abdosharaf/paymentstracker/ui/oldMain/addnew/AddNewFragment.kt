@@ -1,4 +1,4 @@
-package com.abdosharaf.paymentstracker.ui.addnew
+package com.abdosharaf.paymentstracker.ui.oldMain.addnew
 
 import android.os.Bundle
 import android.view.LayoutInflater

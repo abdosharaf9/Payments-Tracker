@@ -5,4 +5,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="gray_color">#434343</color>
     <color name="delete_color">#852828</color>
+
+    <!--  Main colors  -->
+    <color name="dark_purple">#280062</color>
+    <color name="purple">#4400a9</color>
 </resources>

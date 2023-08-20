@@ -13,6 +13,7 @@ android {
     defaultConfig {
         applicationId "com.abdosharaf.paymentstracker"
         minSdk 21
+        //noinspection EditedTargetSdkVersion
         targetSdk 34
         versionCode 1
         versionName "1.0"
@@ -74,4 +75,7 @@ dependencies {
 
     // DataStore
     implementation "androidx.datastore:datastore-preferences:1.0.0-alpha04"
+
+    // Splash API
+    implementation 'androidx.core:core-splashscreen:1.0.1'
 }

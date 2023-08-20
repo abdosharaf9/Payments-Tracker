@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.abdosharaf.paymentstracker.ui.paymentslist.ListFragment"
+        android:name="com.abdosharaf.paymentstracker.ui.oldMain.paymentslist.ListFragmentOld"
         android:label="ListFragment"
-        tools:layout="@layout/fragment_list">
+        tools:layout="@layout/fragment_list_old">
         <action
             android:id="@+id/action_listFragment_to_addNewFragment"
             app:destination="@id/addNewFragment" />
@@ -22,12 +22,12 @@
     </fragment>
     <fragment
         android:id="@+id/addNewFragment"
-        android:name="com.abdosharaf.paymentstracker.ui.addnew.AddNewFragment"
+        android:name="com.abdosharaf.paymentstracker.ui.oldMain.addnew.AddNewFragment"
         android:label="AddNewFragment"
         tools:layout="@layout/fragment_add_new" />
     <fragment
         android:id="@+id/singlePaymentFragment"
-        android:name="com.abdosharaf.paymentstracker.ui.singlepayment.SinglePaymentFragment"
+        android:name="com.abdosharaf.paymentstracker.ui.oldMain.singlepayment.SinglePaymentFragment"
         android:label="SinglePaymentFragment"
         tools:layout="@layout/fragment_single_payment">
         <argument
@@ -36,7 +36,7 @@
     </fragment>
     <fragment
         android:id="@+id/balanceFragment"
-        android:name="com.abdosharaf.paymentstracker.ui.BalanceFragment"
+        android:name="com.abdosharaf.paymentstracker.ui.oldMain.BalanceFragment"
         android:label="BalanceFragment"
         tools:layout="@layout/fragment_balance" />
 </navigation>
