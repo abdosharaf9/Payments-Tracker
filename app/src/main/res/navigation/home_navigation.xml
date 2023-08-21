@@ -9,7 +9,14 @@
         android:id="@+id/homeFragment"
         android:name="com.abdosharaf.paymentstracker.ui.home.fragments.home.HomeFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_listFragmentOld"
+            app:destination="@id/listFragmentOld" />
+        <action
+            android:id="@+id/action_homeFragment_to_addNewFragment2"
+            app:destination="@id/addNewFragment2" />
+    </fragment>
     <fragment
         android:id="@+id/statsFragment"
         android:name="com.abdosharaf.paymentstracker.ui.home.fragments.stats.StatsFragment"
@@ -25,4 +32,14 @@
         android:name="com.abdosharaf.paymentstracker.ui.home.fragments.profile.ProfileFragment"
         android:label="ProfileFragment"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/listFragmentOld"
+        android:name="com.abdosharaf.paymentstracker.ui.oldMain.paymentslist.ListFragmentOld"
+        android:label="ListFragmentOld"
+        tools:layout="@layout/fragment_list_old" />
+    <fragment
+        android:id="@+id/addNewFragment2"
+        android:name="com.abdosharaf.paymentstracker.ui.oldMain.addnew.AddNewFragment"
+        android:label="AddNewFragment"
+        tools:layout="@layout/fragment_add_new" />
 </navigation>

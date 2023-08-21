@@ -19,4 +19,7 @@
     <string name="list">List</string>
     <string name="profile">Profile</string>
     <string name="add_new">Add New</string>
+    <string name="notifications">notifications</string>
+    <string name="available_balance">Available Balance</string>
+    <string name="balance">%.2fEGP</string>
 </resources>
