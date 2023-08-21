@@ -22,5 +22,7 @@ class HomeActivity : BaseActivity() {
     private fun setupBottomNavigation() {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.homeNavHost) as NavHostFragment
         binding.bottomNavigation.setupWithNavController(navHostFragment.navController)
+        binding.bottomNavigation.background = null
+        binding.bottomNavigation.menu.getItem(2).isEnabled = false
     }
 }

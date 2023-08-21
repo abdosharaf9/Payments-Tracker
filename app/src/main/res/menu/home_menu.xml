@@ -4,19 +4,22 @@
     <!-- TODO: Change icons -->
     <item
         android:id="@+id/homeFragment"
-        android:icon="@drawable/ic_home"
+        android:icon="@drawable/ic_home_selector"
         android:title="@string/home" />
     <item
         android:id="@+id/statsFragment"
-        android:icon="@drawable/ic_chart"
+        android:icon="@drawable/ic_chart_selector"
         android:title="@string/statistics" />
     <item
+        android:id="@+id/placeholder"
+        android:title="" />
+    <item
         android:id="@+id/listFragment"
-        android:icon="@drawable/ic_list"
+        android:icon="@drawable/ic_list_selector"
         android:title="@string/list" />
     <item
         android:id="@+id/profileFragment"
-        android:icon="@drawable/ic_profile"
+        android:icon="@drawable/ic_profile_selector"
         android:title="@string/profile" />
 
 </menu>
