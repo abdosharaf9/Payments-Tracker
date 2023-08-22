@@ -5,7 +5,7 @@ import androidx.room.*
 import com.abdosharaf.paymentstracker.models.PaymentItem
 
 @Dao
-interface PaymentsDao {
+interface ExpensesDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addPayment(item: PaymentItem)

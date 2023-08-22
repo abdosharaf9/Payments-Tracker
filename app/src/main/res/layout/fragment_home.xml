@@ -22,7 +22,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.3" />
+                app:layout_constraintGuide_begin="225dp" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline3"
@@ -113,12 +113,12 @@
                 app:layout_constraintTop_toBottomOf="@id/tvBalanceLabel"
                 tools:text="1200.00EGP" />
 
-            <!-- TODO: Change the icons & text styles -->
             <LinearLayout
                 android:id="@+id/shortcutsContainer"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/curved_filled_white"
+                android:baselineAligned="false"
                 android:elevation="30dp"
                 android:orientation="horizontal"
                 android:padding="16dp"
@@ -127,7 +127,8 @@
                 app:layout_constraintStart_toStartOf="@+id/guideline1"
                 app:layout_constraintTop_toTopOf="@id/guideline">
 
-                <LinearLayout
+                <!-- TODO: Search for something to be added instead -->
+                <!--<LinearLayout
                     android:id="@+id/topUpLinear"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -148,29 +149,29 @@
                         android:text="Top Up"
                         android:textColor="@color/black"
                         android:textSize="14sp" />
-                </LinearLayout>
+                </LinearLayout>-->
 
                 <LinearLayout
-                    android:id="@+id/payLinear"
+                    android:id="@+id/expenseLinear"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    tools:ignore="UseCompoundDrawables">
 
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:src="@drawable/ic_chart_unselected"
-                        app:tint="@color/purple" />
+                        android:contentDescription="@string/expense"
+                        app:srcCompat="@drawable/ic_expense" />
 
                     <TextView
+                        style="@style/main_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="Pay"
-                        android:textColor="@color/black"
-                        android:textSize="14sp" />
+                        android:text="@string/expense" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -179,51 +180,76 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    tools:ignore="UseCompoundDrawables">
 
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:src="@drawable/ic_list_unselected"
-                        app:tint="@color/purple" />
+                        android:contentDescription="@string/income"
+                        android:src="@drawable/ic_income" />
 
                     <TextView
+                        style="@style/main_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="Income"
-                        android:textColor="@color/black"
-                        android:textSize="14sp" />
+                        android:text="@string/income" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/HistoryLinear"
+                    android:id="@+id/historyLinear"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    tools:ignore="UseCompoundDrawables">
 
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:src="@drawable/ic_profile_unselected"
-                        app:tint="@color/purple" />
+                        android:contentDescription="@string/history"
+                        android:src="@drawable/ic_history" />
 
                     <TextView
+                        style="@style/main_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="History"
-                        android:textColor="@color/black"
-                        android:textSize="14sp" />
+                        android:text="@string/history" />
                 </LinearLayout>
 
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/tvPaymentListTitle"
+                style="@style/side_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/payment_list"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/guideline1"
+                app:layout_constraintTop_toBottomOf="@id/shortcutsContainer" />
 
-
-
+            <!-- TODO: Replace with payments list -->
+            <TextView
+                android:id="@+id/listPlaceholder"
+                android:layout_width="0dp"
+                android:layout_height="500dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/gradient_background"
+                android:gravity="center"
+                android:text="Here will be a list"
+                android:textColor="@color/white"
+                android:textSize="32sp"
+                app:layout_constraintBottom_toTopOf="@id/btnOldAdd"
+                app:layout_constraintEnd_toStartOf="@id/guideline2"
+                app:layout_constraintStart_toEndOf="@id/guideline1"
+                app:layout_constraintTop_toBottomOf="@id/tvPaymentListTitle"
+                tools:ignore="HardcodedText" />
 
             <Button
                 android:id="@+id/btnOldList"
@@ -232,11 +258,13 @@
                 android:layout_marginBottom="60dp"
                 android:text="Go to old list"
                 android:textAllCaps="false"
-                android:visibility="gone"
+                android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/btnOldAdd"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="HardcodedText"
+                tools:visibility="visible" />
 
             <Button
                 android:id="@+id/btnOldAdd"
@@ -244,11 +272,13 @@
                 android:layout_height="wrap_content"
                 android:text="Go to old Add"
                 android:textAllCaps="false"
-                android:visibility="gone"
+                android:visibility="visible"
                 app:layout_constraintBaseline_toBaselineOf="@+id/btnOldList"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/btnOldList" />
+                app:layout_constraintStart_toEndOf="@+id/btnOldList"
+                tools:ignore="HardcodedText"
+                tools:visibility="visible" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

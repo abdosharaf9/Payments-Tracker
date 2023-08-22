@@ -12,4 +12,5 @@
     <color name="purple_opacity_10">#1A4400a9</color>
     <color name="light_gray">#c7c7c7</color>
     <color name="light_gray_text">#b8b4be</color>
+    <color name="red">#FF0000</color>
 </resources>

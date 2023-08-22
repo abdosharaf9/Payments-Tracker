@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.abdosharaf.paymentstracker.ui.addExpense.AddExpenseViewModel" />
+
+        <import type="com.abdosharaf.paymentstracker.utils.FormErrors" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toTopOf="@+id/btnAdd"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:context=".ui.addExpense.AddExpenseActivity">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="16dp">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.03" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="@dimen/main_margin" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="@dimen/main_margin" />
+
+                <TextView
+                    android:id="@+id/tvAddExpenseTitle"
+                    style="@style/main_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_expense"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline12"
+                    app:layout_constraintStart_toStartOf="@+id/guideline11"
+                    app:layout_constraintTop_toTopOf="@+id/guideline10" />
+
+                <ImageView
+                    android:id="@+id/btnBack"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="-8dp"
+                    android:contentDescription="@string/notifications"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_back"
+                    app:layout_constraintStart_toStartOf="@+id/guideline11"
+                    app:layout_constraintTop_toTopOf="@+id/guideline10" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilName"
+                    style="@style/text_input_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline12"
+                    app:layout_constraintStart_toStartOf="@+id/guideline11"
+                    app:layout_constraintTop_toBottomOf="@+id/tvAddExpenseTitle">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tieName"
+                        style="@style/text_input_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@{viewModel.errorList.contains(FormErrors.INVALID_NAME) ? @drawable/input_error_background : @drawable/input_background}"
+                        android:hint="@string/name"
+                        android:lines="1" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tvNameError"
+                    style="@style/error_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/invalid_name"
+                    android:visibility="@{viewModel.errorList.contains(FormErrors.INVALID_NAME) ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/guideline11"
+                    app:layout_constraintTop_toBottomOf="@id/tilName" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilValue"
+                    style="@style/text_input_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline12"
+                    app:layout_constraintStart_toStartOf="@+id/guideline11"
+                    app:layout_constraintTop_toBottomOf="@+id/tvNameError">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tieValue"
+                        style="@style/text_input_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@{viewModel.errorList.contains(FormErrors.INVALID_VALUE) ? @drawable/input_error_background : @drawable/input_background}"
+                        android:hint="@string/value"
+                        android:inputType="numberDecimal"
+                        android:lines="1"
+                        android:paddingEnd="40dp"
+                        tools:ignore="RtlSymmetry" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    style="@style/input_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/egp"
+                    app:layout_constraintBottom_toBottomOf="@id/tilValue"
+                    app:layout_constraintEnd_toEndOf="@id/tilValue"
+                    app:layout_constraintTop_toTopOf="@id/tilValue" />
+
+                <TextView
+                    android:id="@+id/tvValueError"
+                    style="@style/error_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/invalid_value"
+                    android:visibility="@{viewModel.errorList.contains(FormErrors.INVALID_VALUE) ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/guideline11"
+                    app:layout_constraintTop_toBottomOf="@id/tilValue" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilDescription"
+                    style="@style/text_input_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline12"
+                    app:layout_constraintStart_toStartOf="@+id/guideline11"
+                    app:layout_constraintTop_toBottomOf="@+id/tvValueError">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tieDescription"
+                        style="@style/text_input_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/input_background"
+                        android:gravity="start"
+                        android:hint="@string/description"
+                        android:inputType="textMultiLine"
+                        android:minHeight="100dp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <!-- TODO: Create custom button -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnAdd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/main_margin"
+            android:layout_marginEnd="@dimen/main_margin"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/curved_gradient_background"
+            android:text="@string/add"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

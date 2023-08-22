@@ -9,5 +9,5 @@ import com.abdosharaf.paymentstracker.models.PaymentItem
     version = 1
 )
 abstract class PaymentDatabase : RoomDatabase() {
-    abstract fun paymentDao() : PaymentsDao
+    abstract fun paymentDao() : ExpensesDao
 }

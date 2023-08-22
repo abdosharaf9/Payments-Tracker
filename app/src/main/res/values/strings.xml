@@ -22,4 +22,14 @@
     <string name="notifications">notifications</string>
     <string name="available_balance">Available Balance</string>
     <string name="balance">%.2fEGP</string>
+    <string name="expense">Expense</string>
+    <string name="income">Income</string>
+    <string name="history">History</string>
+    <string name="payment_list">Payment List</string>
+    <string name="add_expense">Add Expense</string>
+    <string name="invalid_name">Invalid name!</string>
+    <string name="invalid_value">Invalid value!</string>
+    <string name="egp">EGP</string>
+    <string name="add">Add</string>
+    <string name="expenses_history">Expenses History</string>
 </resources>

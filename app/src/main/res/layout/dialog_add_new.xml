@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/curved_filled_white"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:id="@+id/expenseLinear"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/incomeLinear"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:contentDescription="@string/expense"
+                app:srcCompat="@drawable/ic_expense" />
+
+            <TextView
+                style="@style/side_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/expense"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/incomeLinear"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/expenseLinear"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:contentDescription="@string/income"
+                android:src="@drawable/ic_income" />
+
+            <TextView
+                style="@style/side_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/income"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:background="@color/light_gray"
+            app:layout_constraintBottom_toBottomOf="@id/incomeLinear"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/incomeLinear" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

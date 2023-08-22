@@ -48,7 +48,7 @@
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/gradient_background"
+            android:background="@color/purple"
             android:contentDescription="@string/add_new"
             android:src="@drawable/ic_baseline_add_24"
             app:layout_anchor="@id/bottomAppBar" />

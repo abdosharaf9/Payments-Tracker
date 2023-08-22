@@ -58,4 +58,45 @@
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">24sp</item>
     </style>
+
+    <style name="main_text">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="side_title">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="main_title">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="input_text">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="text_input_layout">
+        <item name="boxBackgroundMode">none</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="hintEnabled">false</item>
+    </style>
+
+    <style name="text_input_edit_text" parent="input_text">
+        <item name="android:inputType">text</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/light_gray</item>
+        <item name="android:textAppearance">@style/input_text</item>
+    </style>
+
+    <style name="error_text">
+        <item name="android:textColor">@color/red</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
 </resources>

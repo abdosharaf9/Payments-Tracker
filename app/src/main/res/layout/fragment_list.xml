@@ -1,23 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
     </data>
 
+    <!-- TODO: Remove this layout!!! -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
+        android:orientation="vertical"
         tools:context=".ui.home.fragments.list.ListFragment">
 
-        <!-- TODO: Update blank fragment layout -->
         <TextView
+            android:id="@+id/tvListTitle"
+            style="@style/main_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/itemData"
-            android:text="List" />
+            android:layout_marginTop="16dp"
+            android:text="@string/expenses_history" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvExpanses"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/main_margin"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="@dimen/main_margin"
+            android:layout_marginBottom="@dimen/_8dp"
+            android:paddingTop="@dimen/_8dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_payment" />
 
     </LinearLayout>
 </layout>
