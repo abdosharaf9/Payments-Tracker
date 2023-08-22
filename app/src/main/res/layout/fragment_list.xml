@@ -7,33 +7,59 @@
 
     </data>
 
-    <!-- TODO: Remove this layout!!! -->
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical"
         tools:context=".ui.home.fragments.list.ListFragment">
 
-        <TextView
-            android:id="@+id/tvListTitle"
-            style="@style/main_title"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/expenses_history" />
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.03" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvExpanses"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="@dimen/main_margin"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="@dimen/main_margin"
-            android:layout_marginBottom="@dimen/_8dp"
-            android:paddingTop="@dimen/_8dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_payment" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/main_margin" />
 
-    </LinearLayout>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/main_margin" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:background="@drawable/curved_purple_opacity"
+            app:layout_constraintEnd_toStartOf="@id/guideline15"
+            app:layout_constraintStart_toEndOf="@id/guideline14"
+            app:layout_constraintTop_toBottomOf="@id/guideline13"
+            app:tabBackground="@drawable/tab_color_selector"
+            app:tabGravity="fill"
+            app:tabIndicator="@null"
+            app:tabIndicatorColor="@android:color/transparent"
+            app:tabMode="fixed"
+            app:tabRippleColor="@android:color/transparent"
+            app:tabSelectedTextColor="@color/white"
+            app:tabTextAppearance="@style/tab_text"
+            app:tabTextColor="@color/purple" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/view_pager"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline15"
+            app:layout_constraintStart_toStartOf="@+id/guideline14"
+            app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

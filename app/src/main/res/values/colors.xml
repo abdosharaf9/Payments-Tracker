@@ -9,6 +9,7 @@
     <!--  Main colors  -->
     <color name="dark_purple">#280062</color>
     <color name="purple">#4400a9</color>
+    <color name="light_purple">#AD95D3</color>
     <color name="purple_opacity_10">#1A4400a9</color>
     <color name="light_gray">#c7c7c7</color>
     <color name="light_gray_text">#b8b4be</color>

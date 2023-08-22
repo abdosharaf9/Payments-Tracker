@@ -32,4 +32,6 @@
     <string name="egp">EGP</string>
     <string name="add">Add</string>
     <string name="expenses_history">Expenses History</string>
+    <string name="expenses">Expenses</string>
+    <string name="incomes">Incomes</string>
 </resources>
