@@ -2,6 +2,8 @@ package com.abdosharaf.paymentstracker.ui.addExpense
 
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.core.view.isVisible
+import com.abdosharaf.paymentstracker.R
 import com.abdosharaf.paymentstracker.base.BaseActivity
 import com.abdosharaf.paymentstracker.databinding.ActivityAddExpenseBinding
 import com.abdosharaf.paymentstracker.models.PaymentItem
@@ -37,6 +39,10 @@ class AddExpenseActivity : BaseActivity() {
                 showSuccessToast("Added successfully")
                 finish()
             }
+        }
+
+        binding.rgDate.setOnCheckedChangeListener { radioGroup, _ ->
+            binding.datePicker.isVisible = radioGroup.checkedRadioButtonId != R.id.rbToday
         }
     }
 }
