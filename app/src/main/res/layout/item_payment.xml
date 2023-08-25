@@ -15,8 +15,10 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/_8dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/payment_item_background"
+        android:clipChildren="false"
+        android:clipToPadding="false"
         android:elevation="@dimen/_5dp"
         android:paddingStart="20dp"
         android:paddingTop="15dp"
@@ -71,7 +73,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_8dp"
             android:text="@string/description"
-            android:visibility="@{item.desc == null ? View.GONE : View.VISIBLE}"
+            android:visibility="@{item.desc == null || item.desc.isEmpty() ? View.GONE : View.VISIBLE}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvItemValue" />
 
@@ -82,7 +84,7 @@
             android:ellipsize="end"
             android:maxLines="2"
             android:text="@{item.desc}"
-            android:visibility="@{item.desc == null ? View.GONE : View.VISIBLE}"
+            android:visibility="@{item.desc == null || item.desc.isEmpty() ? View.GONE : View.VISIBLE}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/tvItemDescriptionLabel"
             tools:text="null" />

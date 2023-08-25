@@ -11,8 +11,9 @@ import kotlinx.coroutines.flow.first
  * @param dataStore DataStore instance that will be used to save the data.
  * @param key The key used to save data.
  * @param value The value you need to save. */
-suspend fun saveToPref(dataStore: DataStore<Preferences>, key: String, value: Any) {
-    val dataStoreKey = preferencesKey<Any>(key)
+suspend fun saveToPref(dataStore: DataStore<Preferences>, key: String, value: Double) {
+    // TODO: Fix the preferences type error!!!
+    val dataStoreKey = preferencesKey<Double>(key)
     dataStore.edit { settings ->
         settings[dataStoreKey] = value
     }
@@ -22,8 +23,9 @@ suspend fun saveToPref(dataStore: DataStore<Preferences>, key: String, value: An
  * This method is used to get values saved in the DataStore using the key.
  * @param dataStore DataStore instance that will be used to get the data.
  * @param key The key that was used to save data. */
-suspend fun readFromPref(dataStore: DataStore<Preferences>, key: String): Any? {
-    val dataStoreKey = preferencesKey<Any>(key)
+suspend fun readFromPref(dataStore: DataStore<Preferences>, key: String): Double? {
+    // TODO: Fix the preferences type error!!!
+    val dataStoreKey = preferencesKey<Double>(key)
     val preferences = dataStore.data.first()
     return preferences[dataStoreKey]
 }

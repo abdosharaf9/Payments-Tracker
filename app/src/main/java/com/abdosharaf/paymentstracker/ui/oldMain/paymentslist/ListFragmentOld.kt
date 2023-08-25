@@ -40,7 +40,7 @@ class ListFragmentOld : BaseFragment() {
             }
         }
 
-        initMainClicks()
+//        initMainClicks()
 
         return binding.root
     }

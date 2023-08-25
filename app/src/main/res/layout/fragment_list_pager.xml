@@ -10,18 +10,26 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:clipChildren="false"
+        android:clipToPadding="false"
         tools:context=".ui.home.fragments.list.ListPagerFragment">
 
-        <TextView
-            android:id="@+id/expenses"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Expenses"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvExpenses"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:paddingStart="25dp"
+            android:paddingBottom="65dp"
+            android:paddingEnd="25dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:itemCount="10"
+            tools:listitem="@layout/item_payment" />
 
         <TextView
             android:id="@+id/income"
@@ -35,22 +43,4 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-</layout><!--<TextView
-        android:id="@+id/tvListTitle"
-        style="@style/main_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/expenses_history" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvExpanses"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="@dimen/main_margin"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="@dimen/main_margin"
-        android:layout_marginBottom="@dimen/_8dp"
-        android:paddingTop="@dimen/_8dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_payment" />-->
+</layout>

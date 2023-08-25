@@ -3,17 +3,28 @@ package com.abdosharaf.paymentstracker.ui.addExpense
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.createDataStore
+import androidx.lifecycle.lifecycleScope
+import com.abdosharaf.paymentstracker.Constants.BALANCE_KEY
 import com.abdosharaf.paymentstracker.R
 import com.abdosharaf.paymentstracker.base.BaseActivity
 import com.abdosharaf.paymentstracker.databinding.ActivityAddExpenseBinding
 import com.abdosharaf.paymentstracker.models.PaymentItem
+import com.abdosharaf.paymentstracker.utils.readFromPref
+import com.abdosharaf.paymentstracker.utils.saveToPref
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class AddExpenseActivity : BaseActivity() {
 
     private lateinit var binding: ActivityAddExpenseBinding
     private val viewModel: AddExpenseViewModel by viewModels()
+    private val dataStore: DataStore<Preferences> by lazy {
+        createDataStore(name = "my_data_store")
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,9 +46,18 @@ class AddExpenseActivity : BaseActivity() {
             val description = binding.tieDescription.text.toString()
 
             if (viewModel.validateForm(name, value)) {
-                viewModel.addNewExpense(PaymentItem(name, value, description))
-                showSuccessToast("Added successfully")
-                finish()
+                lifecycleScope.launch {
+                    viewModel.addNewExpense(PaymentItem(name, value, description))
+
+                    val balance = readFromPref(dataStore, BALANCE_KEY)
+                    balance?.let {
+                        val newBalance = it.minus(value.toDouble())
+                        saveToPref(dataStore, BALANCE_KEY, newBalance)
+                    }
+
+                    showSuccessToast("Added successfully")
+                    finish()
+                }
             }
         }
 

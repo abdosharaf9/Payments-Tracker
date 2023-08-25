@@ -23,11 +23,11 @@ class AddExpenseViewModel @Inject constructor(private val repository: AddExpense
         }
     }
 
-    fun validateForm(name: String, value: String): Boolean {
+    fun validateForm(name: String?, value: String?): Boolean {
         errorList.clear()
 
-        if(name.isEmpty()) errorList.add(FormErrors.INVALID_NAME)
-        if(value.isEmpty()) errorList.add(FormErrors.INVALID_VALUE)
+        if(name.isNullOrEmpty()) errorList.add(FormErrors.INVALID_NAME)
+        if(value.isNullOrEmpty()) errorList.add(FormErrors.INVALID_VALUE)
 
         return errorList.isEmpty()
     }

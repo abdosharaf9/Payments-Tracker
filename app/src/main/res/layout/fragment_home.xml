@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="balance"
+            type="Double" />
     </data>
 
     <ScrollView
@@ -107,7 +109,7 @@
                 style="@style/large_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{@string/balance(1200.00)}"
+                android:text="@{balance == null ? @string/balance(0.00) : @string/balance(balance)}"
                 app:layout_constraintEnd_toStartOf="@id/guideline2"
                 app:layout_constraintStart_toStartOf="@id/guideline1"
                 app:layout_constraintTop_toBottomOf="@id/tvBalanceLabel"
