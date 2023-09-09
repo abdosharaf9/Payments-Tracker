@@ -6,5 +6,7 @@
     <dimen name="_8dp">8dp</dimen>
     <dimen name="_5dp">5dp</dimen>
     <dimen name="_50dp">50dp</dimen>
+
     <dimen name="main_margin">25dp</dimen>
+    <dimen name="titles_margin">16dp</dimen>
 </resources>

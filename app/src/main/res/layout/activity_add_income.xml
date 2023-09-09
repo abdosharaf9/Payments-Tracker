@@ -12,15 +12,81 @@
         android:layout_height="match_parent"
         tools:context=".ui.addIncome.AddIncomeActivity">
 
-        <TextView
-            style="@style/side_title"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline18"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add Income"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="@dimen/titles_margin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/main_margin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/main_margin" />
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="-8dp"
+            android:contentDescription="@string/notifications"
+            android:padding="8dp"
+            android:src="@drawable/ic_back"
+            app:layout_constraintStart_toStartOf="@+id/guideline20"
+            app:layout_constraintTop_toTopOf="@+id/guideline18" />
+
+        <TextView
+            android:id="@+id/textView"
+            style="@style/main_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_income"
+            app:layout_constraintEnd_toStartOf="@+id/guideline19"
+            app:layout_constraintStart_toStartOf="@+id/guideline20"
+            app:layout_constraintTop_toTopOf="@+id/guideline18" />
+
+        <EditText
+            android:id="@+id/etIncome"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_50dp"
+            android:background="@drawable/input_background"
+            android:hint="@string/income"
+            android:importantForAutofill="no"
+            android:inputType="numberDecimal"
+            android:padding="12dp"
+            android:textAlignment="textStart"
+            android:textAppearance="@style/input_text"
+            android:textColor="@color/black"
+            android:textColorHint="@color/light_gray"
+            app:layout_constraintBottom_toTopOf="@+id/btnAdd"
+            app:layout_constraintEnd_toStartOf="@+id/guideline19"
+            app:layout_constraintStart_toStartOf="@+id/guideline20"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <!-- TODO: Create custom button -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnAdd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/main_margin"
+            android:layout_marginEnd="@dimen/main_margin"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/curved_gradient_background"
+            android:text="@string/add"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -1,23 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
         tools:context=".ui.home.fragments.profile.ProfileFragment">
 
-        <!-- TODO: Update blank fragment layout -->
-        <TextView
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline21"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/itemData"
-            android:text="Profile" />
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="@dimen/titles_margin" />
 
-    </LinearLayout>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/main_margin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/main_margin" />
+
+        <TextView
+            style="@style/main_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/profile"
+            app:layout_constraintEnd_toStartOf="@+id/guideline23"
+            app:layout_constraintStart_toStartOf="@+id/guideline22"
+            app:layout_constraintTop_toTopOf="@+id/guideline21" />
+
+        <!-- TODO: Create custom button -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnResetBalance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/main_margin"
+            android:layout_marginEnd="@dimen/main_margin"
+            android:layout_marginBottom="70dp"
+            android:background="@drawable/curved_gradient_background"
+            android:text="@string/reset_balance"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

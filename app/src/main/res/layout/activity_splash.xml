@@ -7,21 +7,61 @@
 
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/gradient_background"
-        android:gravity="center"
         tools:context=".ui.splash.SplashActivity">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.97" />
 
         <!--  TODO: Change the logo  -->
         <ImageView
+            android:id="@+id/ivSplashLogo"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:background="@color/white"
             android:contentDescription="@string/app_logo"
             android:padding="@dimen/_8dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline16"
             app:srcCompat="@drawable/app_logo" />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/tvMadeWith"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@id/tvAuther"
+            android:text="@string/made_with_love_by"/>
+
+        <TextView
+            android:id="@+id/tvAuther"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/guideline17"
+            android:text="@string/abdo_sharaf"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

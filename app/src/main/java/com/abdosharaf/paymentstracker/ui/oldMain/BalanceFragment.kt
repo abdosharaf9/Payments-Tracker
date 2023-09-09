@@ -10,7 +10,7 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.createDataStore
 import androidx.lifecycle.lifecycleScope
 import com.abdosharaf.paymentstracker.databinding.FragmentBalanceBinding
-import com.abdosharaf.paymentstracker.utils.readFromPref
+import com.abdosharaf.paymentstracker.utils.readFromDataStore
 import kotlinx.coroutines.launch
 
 class BalanceFragment : BaseFragment() {
@@ -28,7 +28,7 @@ class BalanceFragment : BaseFragment() {
         dataStore = requireContext().createDataStore(name = "my_data_store")
 
         lifecycleScope.launch {
-            val value = readFromPref(dataStore, "balance") as String?
+            val value = readFromDataStore(dataStore, "balance") as String?
             binding.balance = value ?: "No value!"
         }
 

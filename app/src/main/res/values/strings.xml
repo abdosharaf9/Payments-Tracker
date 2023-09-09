@@ -34,4 +34,8 @@
     <string name="expenses_history">Expenses History</string>
     <string name="expenses">Expenses</string>
     <string name="incomes">Incomes</string>
+    <string name="made_with_love_by">Made with ❤️ by:</string>
+    <string name="abdo_sharaf">Abdo Sharaf</string>
+    <string name="add_income">Add Income</string>
+    <string name="reset_balance">Reset Balance</string>
 </resources>
