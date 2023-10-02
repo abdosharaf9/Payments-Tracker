@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/curved_filled_white"
+        android:paddingHorizontal="@dimen/_16dp"
+        android:paddingVertical="@dimen/_20dp">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            style="@style/side_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/edit_your_balance"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/etBalance"
+            style="@style/text_input_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="@dimen/_20dp"
+            android:background="@drawable/input_background"
+            android:hint="@string/enter_new_balance_value"
+            android:inputType="numberDecimal"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+        <TextView
+            style="@style/input_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@string/egp"
+            app:layout_constraintBottom_toBottomOf="@id/etBalance"
+            app:layout_constraintEnd_toEndOf="@id/etBalance"
+            app:layout_constraintTop_toTopOf="@id/etBalance" />
+
+        <!-- TODO: Create custom button -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnEditBalance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/curved_gradient_background"
+            android:text="@string/edit"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etBalance" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

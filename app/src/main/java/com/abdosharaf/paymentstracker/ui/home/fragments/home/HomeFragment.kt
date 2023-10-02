@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.abdosharaf.paymentstracker.Common
 import com.abdosharaf.paymentstracker.Constants.TAG
 import com.abdosharaf.paymentstracker.PrefKeys.BALANCE_KEY
 import com.abdosharaf.paymentstracker.R
@@ -14,7 +15,9 @@ import com.abdosharaf.paymentstracker.base.BaseFragment
 import com.abdosharaf.paymentstracker.databinding.FragmentHomeBinding
 import com.abdosharaf.paymentstracker.ui.addExpense.AddExpenseActivity
 import com.abdosharaf.paymentstracker.ui.addIncome.AddIncomeActivity
+import com.abdosharaf.paymentstracker.ui.dialogs.DialogEditBalance
 import com.abdosharaf.paymentstracker.utils.getFromPrefs
+import com.abdosharaf.paymentstracker.utils.saveToPrefs
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -29,16 +32,20 @@ class HomeFragment : BaseFragment() {
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
+        getBalance()
         initMainClicks()
+
+        Common.balance.observe(viewLifecycleOwner) { newBalance ->
+            binding.balance = newBalance
+        }
 
         return binding.root
     }
 
-    override fun onResume() {
-        super.onResume()
+    private fun getBalance() {
         val balance = getFromPrefs(requireContext(), BALANCE_KEY, 0.0) as Double
         Log.d(TAG, "onCreateView: $balance")
-        binding.balance = balance
+        Common.balance.value = balance
     }
 
     private fun initMainClicks() {
@@ -55,6 +62,9 @@ class HomeFragment : BaseFragment() {
         binding.ivUserImage.setOnClickListener {
             requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigation).selectedItemId =
                 R.id.profileFragment
+        }
+        binding.ivEditBalance.setOnClickListener {
+            editBalance()
         }
 
         binding.btnNotifications.setOnClickListener {
@@ -74,5 +84,12 @@ class HomeFragment : BaseFragment() {
         binding.btnOldAdd.setOnClickListener {
             findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToAddNewFragment2())
         }
+    }
+
+    private fun editBalance() {
+        DialogEditBalance({ newBalance ->
+            saveToPrefs(requireContext(), BALANCE_KEY, newBalance)
+            Common.balance.value = newBalance
+        }, requireContext())
     }
 }

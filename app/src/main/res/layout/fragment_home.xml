@@ -115,6 +115,19 @@
                 app:layout_constraintTop_toBottomOf="@id/tvBalanceLabel"
                 tools:text="1200.00EGP" />
 
+            <!-- TODO: Change the icon!! -->
+            <ImageView
+                android:id="@+id/ivEditBalance"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:padding="4dp"
+                app:srcCompat="@drawable/ic_edit"
+                android:layout_marginStart="8dp"
+                app:layout_constraintTop_toTopOf="@id/tvBalance"
+                app:layout_constraintBottom_toBottomOf="@id/tvBalance"
+                app:layout_constraintStart_toEndOf="@id/tvBalance"
+                android:contentDescription="@string/edit_your_balance" />
+
             <LinearLayout
                 android:id="@+id/shortcutsContainer"
                 android:layout_width="0dp"

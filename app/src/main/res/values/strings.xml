@@ -38,4 +38,7 @@
     <string name="abdo_sharaf">Abdo Sharaf</string>
     <string name="add_income">Add Income</string>
     <string name="reset_balance">Reset Balance</string>
+    <string name="edit_your_balance">Edit Your Balance</string>
+    <string name="enter_new_balance_value">Enter New Balance Value</string>
+    <string name="edit">Edit</string>
 </resources>

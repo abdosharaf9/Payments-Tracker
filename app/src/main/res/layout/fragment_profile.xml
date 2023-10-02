@@ -43,21 +43,5 @@
             app:layout_constraintStart_toStartOf="@+id/guideline22"
             app:layout_constraintTop_toTopOf="@+id/guideline21" />
 
-        <!-- TODO: Create custom button -->
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnResetBalance"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/main_margin"
-            android:layout_marginEnd="@dimen/main_margin"
-            android:layout_marginBottom="70dp"
-            android:background="@drawable/curved_gradient_background"
-            android:text="@string/reset_balance"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

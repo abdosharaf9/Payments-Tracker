@@ -27,8 +27,8 @@ class ProfileFragment : BaseFragment() {
     }
 
     private fun initMainClicks() {
-        binding.btnResetBalance.setOnClickListener {
+        /*binding.btnResetBalance.setOnClickListener {
             removeFromPrefs(requireContext(), BALANCE_KEY)
-        }
+        }*/
     }
 }
