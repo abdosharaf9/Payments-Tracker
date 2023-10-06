@@ -1,9 +1,12 @@
 package com.abdosharaf.paymentstracker.di
 
 import android.content.Context
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
 import androidx.room.Room
 import com.abdosharaf.paymentstracker.Constants.DATABASE_NAME
 import com.abdosharaf.paymentstracker.db.PaymentDatabase
+import com.abdosharaf.paymentstracker.utils.appDataStore
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -26,4 +29,9 @@ object AppModule {
     @Provides
     @Singleton
     fun provideDao(db: PaymentDatabase) = db.paymentDao()
+
+    @Singleton
+    @Provides
+    fun provideDataStore(@ApplicationContext context: Context): DataStore<Preferences> =
+        context.appDataStore
 }

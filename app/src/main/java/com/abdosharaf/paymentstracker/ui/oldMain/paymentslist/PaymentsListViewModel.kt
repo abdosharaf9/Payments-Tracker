@@ -4,13 +4,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.abdosharaf.paymentstracker.repository.DatabaseRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class PaymentsListViewModel @Inject constructor(private val repository: PaymentsListRepository) : ViewModel() {
+class PaymentsListViewModel @Inject constructor(private val repository: DatabaseRepository) : ViewModel() {
 
     val list = repository.getAllPayments()
 

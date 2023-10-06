@@ -54,10 +54,6 @@ dependencies {
     implementation 'androidx.room:room-ktx:2.5.2'
     kapt 'androidx.room:room-compiler:2.5.2'
 
-    // Coroutines
-//    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1'
-//    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1'
-
     // Lottie animation
     implementation 'com.airbnb.android:lottie:3.5.0'
 
@@ -74,7 +70,7 @@ dependencies {
     kapt 'androidx.hilt:hilt-compiler:1.0.0'
 
     // DataStore
-    implementation "androidx.datastore:datastore-preferences:1.0.0-alpha04"
+    implementation "androidx.datastore:datastore-preferences:1.1.0-alpha05"
 
     // Splash API
     implementation 'androidx.core:core-splashscreen:1.0.1'

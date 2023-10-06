@@ -2,14 +2,12 @@ package com.abdosharaf.paymentstracker.ui.home.fragments.home
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.abdosharaf.paymentstracker.Common
-import com.abdosharaf.paymentstracker.Constants.TAG
-import com.abdosharaf.paymentstracker.PrefKeys.BALANCE_KEY
+import com.abdosharaf.paymentstracker.utils.PrefKeys.BALANCE_KEY
 import com.abdosharaf.paymentstracker.R
 import com.abdosharaf.paymentstracker.base.BaseFragment
 import com.abdosharaf.paymentstracker.databinding.FragmentHomeBinding
@@ -44,7 +42,6 @@ class HomeFragment : BaseFragment() {
 
     private fun getBalance() {
         val balance = getFromPrefs(requireContext(), BALANCE_KEY, 0.0) as Double
-        Log.d(TAG, "onCreateView: $balance")
         Common.balance.value = balance
     }
 

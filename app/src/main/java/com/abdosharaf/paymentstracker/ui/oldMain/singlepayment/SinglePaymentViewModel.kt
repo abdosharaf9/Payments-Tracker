@@ -5,13 +5,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.abdosharaf.paymentstracker.models.PaymentItem
+import com.abdosharaf.paymentstracker.repository.DatabaseRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class SinglePaymentViewModel @Inject constructor(private val repository: SinglePaymentRepository) : ViewModel() {
+class SinglePaymentViewModel @Inject constructor(private val repository: DatabaseRepository) : ViewModel() {
 
     val item = MutableLiveData<PaymentItem>()
 

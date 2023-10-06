@@ -1,10 +1,10 @@
 package com.abdosharaf.paymentstracker.ui.addExpense
 
 import androidx.databinding.ObservableArrayList
-import androidx.databinding.ObservableList
 import androidx.lifecycle.viewModelScope
 import com.abdosharaf.paymentstracker.base.BaseViewModel
 import com.abdosharaf.paymentstracker.models.PaymentItem
+import com.abdosharaf.paymentstracker.repository.DatabaseRepository
 import com.abdosharaf.paymentstracker.utils.FormErrors
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class AddExpenseViewModel @Inject constructor(private val repository: AddExpenseRepository) :
+class AddExpenseViewModel @Inject constructor(private val repository: DatabaseRepository) :
     BaseViewModel() {
 
     val errorList = ObservableArrayList<FormErrors>()

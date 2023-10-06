@@ -75,9 +75,5 @@ class ListFragmentOld : BaseFragment() {
                 dialog.show()
             }
         }
-
-        binding.btnShowBalance.setOnClickListener {
-            findNavController().navigate(com.abdosharaf.paymentstracker.ui.oldMain.paymentslist.ListFragmentOldDirections.actionListFragmentToBalanceFragment())
-        }
     }
 }
