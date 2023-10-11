@@ -11,5 +11,25 @@ data class PaymentItem(
     val desc: String?,
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0L
-) : Serializable
+) : Serializable {
+
+    fun print() = "${this.id}, ${this.name}, ${this.value}, ${this.getDescription()}"
+
+    fun getDescription(): String? {
+        return if(this.desc?.contains("\n") == true) {
+            var description = ""
+            for (i in this.desc) {
+                if(i != '\n') {
+                    description += i
+                } else {
+                    description += " & "
+                }
+            }
+
+            description
+        } else {
+            this.desc
+        }
+    }
+}
 
