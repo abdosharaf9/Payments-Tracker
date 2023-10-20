@@ -1,7 +1,6 @@
 package com.abdosharaf.paymentstracker.ui.home.fragments.list
 
 import android.os.Bundle
-import android.os.Environment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,11 +8,10 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import com.abdosharaf.paymentstracker.base.BaseFragment
 import com.abdosharaf.paymentstracker.databinding.FragmentListPagerBinding
+import com.abdosharaf.paymentstracker.models.ExpenseItem
 import com.abdosharaf.paymentstracker.ui.oldMain.paymentslist.PaymentsAdapter
 import com.abdosharaf.paymentstracker.ui.oldMain.paymentslist.PaymentsListViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import java.io.File
-import java.io.IOException
 
 private const val ARG_PARAM1 = "type"
 
@@ -21,7 +19,8 @@ private const val ARG_PARAM1 = "type"
 class ListPagerFragment : BaseFragment() {
 
     private lateinit var binding: FragmentListPagerBinding
-    private lateinit var adapter: PaymentsAdapter
+    private lateinit var expensesAdapter: PaymentsAdapter
+    private lateinit var incomesAdapter: PaymentsAdapter
     private val viewModel: PaymentsListViewModel by viewModels()
     private var type: Boolean = true
 
@@ -42,14 +41,15 @@ class ListPagerFragment : BaseFragment() {
             true -> {
                 binding.rvExpenses.isVisible = true
 //                binding.btnExport.isVisible = true
-                binding.income.isVisible = false
-                setupRecycler()
+                binding.rvIncomes.isVisible = false
+                setupExpensesRecycler()
             }
 
             false -> {
                 binding.rvExpenses.isVisible = false
 //                binding.btnExport.isVisible = false
-                binding.income.isVisible = true
+                binding.rvIncomes.isVisible = true
+                setupIncomesRecycler()
             }
         }
 
@@ -60,34 +60,35 @@ class ListPagerFragment : BaseFragment() {
         return binding.root
     }
 
-    private fun setupRecycler() {
-        adapter = PaymentsAdapter()
-        adapter.onItemClicked = { _ ->
+    private fun setupExpensesRecycler() {
+        expensesAdapter = PaymentsAdapter()
+        expensesAdapter.onItemClicked = { _ ->
             showSuccessToast("Going to single expense screen....")
         }
 
-        binding.rvExpenses.adapter = adapter
-        viewModel.list.observe(viewLifecycleOwner) { list ->
-            adapter.submitList(list)
+        binding.rvExpenses.adapter = expensesAdapter
+        viewModel.expensesList.observe(viewLifecycleOwner) { list ->
+            expensesAdapter.submitList(list)
         }
     }
 
-    private fun exportPaymentsTable() {
-        val directory = requireContext().getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS)
-        val csvFile = File(directory, "payments.csv")
+    private fun setupIncomesRecycler() {
+        incomesAdapter = PaymentsAdapter()
+        incomesAdapter.onItemClicked = { _ ->
+            showSuccessToast("Going to single expense screen....")
+        }
 
-        try {
-            csvFile.bufferedWriter().use { out ->
-                out.write("ID, Name, Value, Description\n")
-                for (record in viewModel.list.value!!) {
-                    val line = "${record.print()}\n"
-                    out.write(line)
-                }
-            }
-
-            showSuccessToast("Done ✅")
-        } catch (e: IOException) {
-            e.printStackTrace()
+        binding.rvIncomes.adapter = incomesAdapter
+        viewModel.incomesList.observe(viewLifecycleOwner) { list ->
+            incomesAdapter.submitList(list.map { incomeItem ->
+                ExpenseItem(
+                    name = incomeItem.name,
+                    value = incomeItem.value,
+                    desc = incomeItem.desc,
+                    date = incomeItem.date,
+                    id = incomeItem.id
+                )
+            })
         }
     }
 

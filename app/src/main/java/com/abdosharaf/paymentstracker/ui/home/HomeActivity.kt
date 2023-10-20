@@ -4,11 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.abdosharaf.paymentstracker.Constants
 import com.abdosharaf.paymentstracker.R
 import com.abdosharaf.paymentstracker.base.BaseActivity
 import com.abdosharaf.paymentstracker.databinding.ActivityHomeBinding
-import com.abdosharaf.paymentstracker.ui.addExpense.AddExpenseActivity
-import com.abdosharaf.paymentstracker.ui.addIncome.AddIncomeActivity
+import com.abdosharaf.paymentstracker.ui.addPayment.AddPaymentActivity
 import com.abdosharaf.paymentstracker.ui.dialogs.DialogAddNew
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -38,10 +38,13 @@ class HomeActivity : BaseActivity() {
         binding.fab.setOnClickListener {
             dialog = DialogAddNew(
                 incomeListener = {
-                    startActivity(Intent(this, AddIncomeActivity::class.java))
+                    Intent(this, AddPaymentActivity::class.java).also { intent ->
+                        intent.putExtra(Constants.ADD_INCOME, true)
+                        startActivity(intent)
+                    }
                 },
                 expenseListener = {
-                    startActivity(Intent(this, AddExpenseActivity::class.java))
+                    startActivity(Intent(this, AddPaymentActivity::class.java))
                 },
                 context = this
             )

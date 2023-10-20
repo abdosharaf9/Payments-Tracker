@@ -27,7 +27,7 @@ class ListFragmentOld : BaseFragment() {
         binding = FragmentListOldBinding.inflate(inflater, container, false)
 
         binding.rvPayments.adapter = adapter
-        viewModel.list.observe(viewLifecycleOwner) { list ->
+        viewModel.expensesList.observe(viewLifecycleOwner) { list ->
             adapter.submitList(list)
             binding.rvPayments.isVisible = list.isNotEmpty()
             binding.emptyState.isVisible = list.isEmpty()
@@ -48,14 +48,14 @@ class ListFragmentOld : BaseFragment() {
     private fun initMainClicks() {
         adapter.onItemClicked = { item ->
             findNavController().navigate(
-                com.abdosharaf.paymentstracker.ui.oldMain.paymentslist.ListFragmentOldDirections.actionListFragmentToSinglePaymentFragment(
+                ListFragmentOldDirections.actionListFragmentToSinglePaymentFragment(
                     item.id
                 )
             )
         }
 
         binding.fbAddNewPayment.setOnClickListener {
-            findNavController().navigate(com.abdosharaf.paymentstracker.ui.oldMain.paymentslist.ListFragmentOldDirections.actionListFragmentToAddNewFragment())
+            findNavController().navigate(ListFragmentOldDirections.actionListFragmentToAddNewFragment())
         }
 
         dialog = AlertDialog.Builder(requireContext())

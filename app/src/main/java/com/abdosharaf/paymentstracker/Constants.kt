@@ -7,4 +7,5 @@ object Constants {
     const val TAG = "ABDO_SHARAF"
     const val EXPENSES_TABLE = "expenses"
     const val INCOMES_TABLE = "incomes"
+    const val ADD_INCOME = "addIncome"
 }

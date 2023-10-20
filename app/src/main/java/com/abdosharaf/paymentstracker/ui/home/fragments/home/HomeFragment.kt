@@ -7,12 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.abdosharaf.paymentstracker.Common
+import com.abdosharaf.paymentstracker.Constants.ADD_INCOME
 import com.abdosharaf.paymentstracker.utils.PrefKeys.BALANCE_KEY
 import com.abdosharaf.paymentstracker.R
 import com.abdosharaf.paymentstracker.base.BaseFragment
 import com.abdosharaf.paymentstracker.databinding.FragmentHomeBinding
-import com.abdosharaf.paymentstracker.ui.addExpense.AddExpenseActivity
-import com.abdosharaf.paymentstracker.ui.addIncome.AddIncomeActivity
+import com.abdosharaf.paymentstracker.ui.addPayment.AddPaymentActivity
 import com.abdosharaf.paymentstracker.ui.dialogs.DialogEditBalance
 import com.abdosharaf.paymentstracker.utils.getFromPrefs
 import com.abdosharaf.paymentstracker.utils.saveToPrefs
@@ -47,19 +47,26 @@ class HomeFragment : BaseFragment() {
 
     private fun initMainClicks() {
         binding.incomeLinear.setOnClickListener {
-            startActivity(Intent(requireActivity(), AddIncomeActivity::class.java))
+            Intent(requireActivity(), AddPaymentActivity::class.java).also { intent ->
+                intent.putExtra(ADD_INCOME, true)
+                startActivity(intent)
+            }
         }
+
         binding.expenseLinear.setOnClickListener {
-            startActivity(Intent(requireActivity(), AddExpenseActivity::class.java))
+            startActivity(Intent(requireActivity(), AddPaymentActivity::class.java))
         }
+
         binding.historyLinear.setOnClickListener {
             requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigation).selectedItemId =
                 R.id.listFragment
         }
+
         binding.ivUserImage.setOnClickListener {
             requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigation).selectedItemId =
                 R.id.profileFragment
         }
+
         binding.ivEditBalance.setOnClickListener {
             editBalance()
         }

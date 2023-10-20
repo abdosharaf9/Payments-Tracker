@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.abdosharaf.paymentstracker.ui.addPayment.addExpense.AddExpenseViewModel" />
+
+        <import type="com.abdosharaf.paymentstracker.utils.FormErrors" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toTopOf="@+id/btnAdd"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:context=".ui.addPayment.addExpense.AddExpenseFragment">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="16dp">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_begin="@dimen/titles_margin" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="@dimen/main_margin" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="@dimen/main_margin" />
+
+                <TextView
+                    android:id="@+id/tvAddExpenseTitle"
+                    style="@style/main_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_expense"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline12"
+                    app:layout_constraintStart_toStartOf="@+id/guideline11"
+                    app:layout_constraintTop_toTopOf="@+id/guideline10" />
+
+                <ImageView
+                    android:id="@+id/btnBack"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="-8dp"
+                    android:contentDescription="@string/go_back"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_back"
+                    app:layout_constraintStart_toStartOf="@+id/guideline11"
+                    app:layout_constraintTop_toTopOf="@+id/guideline10" />
+
+                <EditText
+                    android:id="@+id/etName"
+                    style="@style/input_style"
+                    android:layout_marginTop="20dp"
+                    android:autofillHints="username"
+                    android:background="@{viewModel.errorList.contains(FormErrors.INVALID_NAME) ? @drawable/input_error_background : @drawable/input_background}"
+                    android:hint="@string/name"
+                    android:inputType="textNoSuggestions"
+                    android:lines="1"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline12"
+                    app:layout_constraintStart_toStartOf="@+id/guideline11"
+                    app:layout_constraintTop_toBottomOf="@+id/tvAddExpenseTitle" />
+
+                <TextView
+                    android:id="@+id/tvNameError"
+                    style="@style/error_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/invalid_name"
+                    android:visibility="@{viewModel.errorList.contains(FormErrors.INVALID_NAME) ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/guideline11"
+                    app:layout_constraintTop_toBottomOf="@id/etName" />
+
+                <EditText
+                    android:id="@+id/etValue"
+                    style="@style/input_style"
+                    android:layout_marginTop="16dp"
+                    android:autofillHints="username"
+                    android:background="@{viewModel.errorList.contains(FormErrors.INVALID_VALUE) ? @drawable/input_error_background : @drawable/input_background}"
+                    android:hint="@string/value"
+                    android:inputType="numberDecimal"
+                    android:lines="1"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="40dp"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline12"
+                    app:layout_constraintStart_toStartOf="@+id/guideline11"
+                    app:layout_constraintTop_toBottomOf="@+id/tvNameError" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/egp"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/etValue"
+                    app:layout_constraintEnd_toEndOf="@id/etValue"
+                    app:layout_constraintTop_toTopOf="@id/etValue" />
+
+                <TextView
+                    android:id="@+id/tvValueError"
+                    style="@style/error_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/invalid_value"
+                    android:visibility="@{viewModel.errorList.contains(FormErrors.INVALID_VALUE) ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/guideline11"
+                    app:layout_constraintTop_toBottomOf="@id/etValue" />
+
+                <EditText
+                    android:id="@+id/etDescription"
+                    style="@style/input_style"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:autofillHints="username"
+                    android:background="@drawable/input_background"
+                    android:gravity="start"
+                    android:hint="@string/description"
+                    android:inputType="textMultiLine"
+                    android:lines="1"
+                    android:maxHeight="200dp"
+                    android:minHeight="100dp"
+                    android:paddingVertical="20dp"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline12"
+                    app:layout_constraintStart_toStartOf="@+id/guideline11"
+                    app:layout_constraintTop_toBottomOf="@+id/tvValueError" />
+
+                <TextView
+                    android:id="@+id/tvDateLabel"
+                    style="@style/side_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/choose_expense_date"
+                    app:layout_constraintStart_toStartOf="@id/guideline11"
+                    app:layout_constraintTop_toBottomOf="@id/etDescription" />
+
+                <RadioGroup
+                    android:id="@+id/rgDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:checkedButton="@id/rbNow"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline12"
+                    app:layout_constraintStart_toStartOf="@+id/guideline11"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDateLabel">
+
+                    <RadioButton
+                        android:id="@+id/rbNow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/now" />
+
+                    <RadioButton
+                        android:id="@+id/rbAnotherTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/another_time" />
+
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/tvChosenDate"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/input_background"
+                    android:gravity="center_vertical|start"
+                    android:paddingHorizontal="12dp"
+                    android:text="@string/choose_a_date"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toStartOf="@+id/tvChosenTime"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@id/guideline11"
+                    app:layout_constraintTop_toBottomOf="@id/rgDate"
+                    tools:text="2023-10-20"
+                    tools:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/tvChosenTime"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="16dp"
+                    android:background="@drawable/input_background"
+                    android:gravity="center_vertical|start"
+                    android:paddingHorizontal="12dp"
+                    android:text="@string/choose_a_time"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:visibility="gone"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/tvChosenDate"
+                    app:layout_constraintEnd_toEndOf="@id/guideline12"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/tvChosenDate"
+                    tools:text="05:30 PM"
+                    tools:visibility="visible" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <!-- TODO: Create custom button -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnAdd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/main_margin"
+            android:layout_marginEnd="@dimen/main_margin"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/curved_gradient_background"
+            android:text="@string/add"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.abdosharaf.paymentstracker.ui.addExpense.AddExpenseViewModel" />
+            type="com.abdosharaf.paymentstracker.ui.addPayment.addIncome.AddIncomeViewModel" />
 
         <import type="com.abdosharaf.paymentstracker.utils.FormErrors" />
 
@@ -27,7 +27,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:context=".ui.addExpense.AddExpenseActivity">
+            tools:context=".ui.addPayment.addIncome.AddIncomeFragment">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -56,11 +56,11 @@
                     app:layout_constraintGuide_end="@dimen/main_margin" />
 
                 <TextView
-                    android:id="@+id/tvAddExpenseTitle"
+                    android:id="@+id/tvAddIncomeTitle"
                     style="@style/main_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/add_expense"
+                    android:text="@string/add_income"
                     app:layout_constraintEnd_toStartOf="@+id/guideline12"
                     app:layout_constraintStart_toStartOf="@+id/guideline11"
                     app:layout_constraintTop_toTopOf="@+id/guideline10" />
@@ -70,7 +70,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginStart="-8dp"
-                    android:contentDescription="@string/notifications"
+                    android:contentDescription="@string/go_back"
                     android:padding="8dp"
                     android:src="@drawable/ic_back"
                     app:layout_constraintStart_toStartOf="@+id/guideline11"
@@ -87,7 +87,7 @@
                     android:lines="1"
                     app:layout_constraintEnd_toStartOf="@+id/guideline12"
                     app:layout_constraintStart_toStartOf="@+id/guideline11"
-                    app:layout_constraintTop_toBottomOf="@+id/tvAddExpenseTitle" />
+                    app:layout_constraintTop_toBottomOf="@+id/tvAddIncomeTitle" />
 
                 <TextView
                     android:id="@+id/tvNameError"
@@ -159,7 +159,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
-                    android:text="@string/choose_expense_date"
+                    android:text="@string/choose_income_date"
                     app:layout_constraintStart_toStartOf="@id/guideline11"
                     app:layout_constraintTop_toBottomOf="@id/etDescription" />
 
@@ -168,27 +168,67 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:checkedButton="@id/rbToday"
+                    android:checkedButton="@id/rbNow"
                     android:orientation="horizontal"
                     app:layout_constraintEnd_toStartOf="@+id/guideline12"
                     app:layout_constraintStart_toStartOf="@+id/guideline11"
                     app:layout_constraintTop_toBottomOf="@+id/tvDateLabel">
 
                     <RadioButton
-                        android:id="@+id/rbToday"
+                        android:id="@+id/rbNow"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Today" />
+                        android:text="@string/now" />
 
                     <RadioButton
-                        android:id="@+id/rbAnotherDay"
+                        android:id="@+id/rbAnotherTime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Another day" />
+                        android:text="@string/another_time" />
 
                 </RadioGroup>
+
+                <TextView
+                    android:id="@+id/tvChosenDate"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/input_background"
+                    android:gravity="center_vertical|start"
+                    android:paddingHorizontal="12dp"
+                    android:text="@string/choose_a_date"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toStartOf="@+id/tvChosenTime"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@id/guideline11"
+                    app:layout_constraintTop_toBottomOf="@id/rgDate"
+                    tools:text="2023-10-20"
+                    tools:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/tvChosenTime"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="16dp"
+                    android:background="@drawable/input_background"
+                    android:gravity="center_vertical|start"
+                    android:paddingHorizontal="12dp"
+                    android:text="@string/choose_a_time"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:visibility="gone"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/tvChosenDate"
+                    app:layout_constraintEnd_toEndOf="@id/guideline12"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/tvChosenDate"
+                    tools:text="05:30 PM"
+                    tools:visibility="visible" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>

@@ -47,16 +47,23 @@
             tools:itemCount="10"
             tools:listitem="@layout/item_payment" />
 
-        <TextView
-            android:id="@+id/income"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/incomes"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvIncomes"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:paddingStart="25dp"
+            android:paddingEnd="25dp"
+            android:paddingBottom="65dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/btnExport"
+            tools:itemCount="10"
+            tools:listitem="@layout/item_payment" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

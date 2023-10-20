@@ -43,6 +43,17 @@
     <string name="edit">Edit</string>
     <string name="export_payments">Export Payments</string>
     <string name="choose_expense_date">Choose expense date:</string>
+    <string name="choose_income_date">Choose income date:</string>
     <string name="this_will_exceed_your_balance">This will exceed your current balance!</string>
     <string name="you_are_flat_broke">You are flat broke 😢</string>
+    <string name="today">Today</string>
+    <string name="another_day">Another day</string>
+    <string name="now">Now</string>
+    <string name="another_time">Another Time</string>
+    <string name="choose_a_date">Choose a date</string>
+    <string name="choose_a_time">Choose a time</string>
+    <string name="added_successfully">Added successfully</string>
+    <string name="date">Date</string>
+    <string name="at">at</string>
+    <string name="go_back">Go Back</string>
 </resources>
