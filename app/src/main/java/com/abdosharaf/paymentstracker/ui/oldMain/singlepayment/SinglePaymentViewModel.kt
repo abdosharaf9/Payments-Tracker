@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.abdosharaf.paymentstracker.models.PaymentItem
+import com.abdosharaf.paymentstracker.models.ExpenseItem
 import com.abdosharaf.paymentstracker.repository.DatabaseRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -14,7 +14,7 @@ import javax.inject.Inject
 @HiltViewModel
 class SinglePaymentViewModel @Inject constructor(private val repository: DatabaseRepository) : ViewModel() {
 
-    val item = MutableLiveData<PaymentItem>()
+    val item = MutableLiveData<ExpenseItem>()
 
     private val _deleteItem = MutableLiveData(false)
     val deleteItem : LiveData<Boolean>
@@ -26,7 +26,7 @@ class SinglePaymentViewModel @Inject constructor(private val repository: Databas
 
     fun getItem(id: Long) {
         viewModelScope.launch {
-            item.value = repository.getPaymentItem(id)
+            item.value = repository.getSingleExpense(id)
         }
     }
 
@@ -36,7 +36,7 @@ class SinglePaymentViewModel @Inject constructor(private val repository: Databas
 
     fun deleteItemFromDatabase() {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.deleteItem(item.value!!)
+            repository.deleteSingleExpense(item.value!!)
         }
         _deleteItemComplete.value = true
     }

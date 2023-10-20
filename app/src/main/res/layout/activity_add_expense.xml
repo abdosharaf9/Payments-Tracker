@@ -76,26 +76,18 @@
                     app:layout_constraintStart_toStartOf="@+id/guideline11"
                     app:layout_constraintTop_toTopOf="@+id/guideline10" />
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/tilName"
-                    style="@style/text_input_layout"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                <EditText
+                    android:id="@+id/etName"
+                    style="@style/input_style"
                     android:layout_marginTop="20dp"
+                    android:autofillHints="username"
+                    android:background="@{viewModel.errorList.contains(FormErrors.INVALID_NAME) ? @drawable/input_error_background : @drawable/input_background}"
+                    android:hint="@string/name"
+                    android:inputType="textNoSuggestions"
+                    android:lines="1"
                     app:layout_constraintEnd_toStartOf="@+id/guideline12"
                     app:layout_constraintStart_toStartOf="@+id/guideline11"
-                    app:layout_constraintTop_toBottomOf="@+id/tvAddExpenseTitle">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tieName"
-                        style="@style/text_input_edit_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:background="@{viewModel.errorList.contains(FormErrors.INVALID_NAME) ? @drawable/input_error_background : @drawable/input_background}"
-                        android:hint="@string/name"
-                        android:lines="1" />
-
-                </com.google.android.material.textfield.TextInputLayout>
+                    app:layout_constraintTop_toBottomOf="@+id/tvAddExpenseTitle" />
 
                 <TextView
                     android:id="@+id/tvNameError"
@@ -105,41 +97,33 @@
                     android:text="@string/invalid_name"
                     android:visibility="@{viewModel.errorList.contains(FormErrors.INVALID_NAME) ? View.VISIBLE : View.GONE}"
                     app:layout_constraintStart_toStartOf="@id/guideline11"
-                    app:layout_constraintTop_toBottomOf="@id/tilName" />
+                    app:layout_constraintTop_toBottomOf="@id/etName" />
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/tilValue"
-                    style="@style/text_input_layout"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                <EditText
+                    android:id="@+id/etValue"
+                    style="@style/input_style"
                     android:layout_marginTop="16dp"
+                    android:autofillHints="username"
+                    android:background="@{viewModel.errorList.contains(FormErrors.INVALID_VALUE) ? @drawable/input_error_background : @drawable/input_background}"
+                    android:hint="@string/value"
+                    android:inputType="numberDecimal"
+                    android:lines="1"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="40dp"
                     app:layout_constraintEnd_toStartOf="@+id/guideline12"
                     app:layout_constraintStart_toStartOf="@+id/guideline11"
-                    app:layout_constraintTop_toBottomOf="@+id/tvNameError">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tieValue"
-                        style="@style/text_input_edit_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:background="@{viewModel.errorList.contains(FormErrors.INVALID_VALUE) ? @drawable/input_error_background : @drawable/input_background}"
-                        android:hint="@string/value"
-                        android:inputType="numberDecimal"
-                        android:lines="1"
-                        android:paddingEnd="40dp"
-                        tools:ignore="RtlSymmetry" />
-
-                </com.google.android.material.textfield.TextInputLayout>
+                    app:layout_constraintTop_toBottomOf="@+id/tvNameError" />
 
                 <TextView
-                    style="@style/input_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
                     android:text="@string/egp"
-                    app:layout_constraintBottom_toBottomOf="@id/tilValue"
-                    app:layout_constraintEnd_toEndOf="@id/tilValue"
-                    app:layout_constraintTop_toTopOf="@id/tilValue" />
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/etValue"
+                    app:layout_constraintEnd_toEndOf="@id/etValue"
+                    app:layout_constraintTop_toTopOf="@id/etValue" />
 
                 <TextView
                     android:id="@+id/tvValueError"
@@ -149,41 +133,46 @@
                     android:text="@string/invalid_value"
                     android:visibility="@{viewModel.errorList.contains(FormErrors.INVALID_VALUE) ? View.VISIBLE : View.GONE}"
                     app:layout_constraintStart_toStartOf="@id/guideline11"
-                    app:layout_constraintTop_toBottomOf="@id/tilValue" />
+                    app:layout_constraintTop_toBottomOf="@id/etValue" />
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/tilDescription"
-                    style="@style/text_input_layout"
-                    android:layout_width="0dp"
+                <EditText
+                    android:id="@+id/etDescription"
+                    style="@style/input_style"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
+                    android:autofillHints="username"
+                    android:background="@drawable/input_background"
+                    android:gravity="start"
+                    android:hint="@string/description"
+                    android:inputType="textMultiLine"
+                    android:lines="1"
+                    android:maxHeight="200dp"
+                    android:minHeight="100dp"
+                    android:paddingVertical="20dp"
                     app:layout_constraintEnd_toStartOf="@+id/guideline12"
                     app:layout_constraintStart_toStartOf="@+id/guideline11"
-                    app:layout_constraintTop_toBottomOf="@+id/tvValueError">
+                    app:layout_constraintTop_toBottomOf="@+id/tvValueError" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tieDescription"
-                        style="@style/text_input_edit_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/input_background"
-                        android:gravity="start"
-                        android:hint="@string/description"
-                        android:inputType="textMultiLine"
-                        android:minHeight="100dp" />
-
-                </com.google.android.material.textfield.TextInputLayout>
+                <TextView
+                    android:id="@+id/tvDateLabel"
+                    style="@style/side_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/choose_expense_date"
+                    app:layout_constraintStart_toStartOf="@id/guideline11"
+                    app:layout_constraintTop_toBottomOf="@id/etDescription" />
 
                 <RadioGroup
                     android:id="@+id/rgDate"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="8dp"
                     android:checkedButton="@id/rbToday"
                     android:orientation="horizontal"
                     app:layout_constraintEnd_toStartOf="@+id/guideline12"
                     app:layout_constraintStart_toStartOf="@+id/guideline11"
-                    app:layout_constraintTop_toBottomOf="@+id/tilDescription">
+                    app:layout_constraintTop_toBottomOf="@+id/tvDateLabel">
 
                     <RadioButton
                         android:id="@+id/rbToday"
@@ -200,17 +189,6 @@
                         android:text="Another day" />
 
                 </RadioGroup>
-
-                <DatePicker
-                    android:id="@+id/datePicker"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:visibility="gone"
-                    tools:visibility="visible"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline12"
-                    app:layout_constraintStart_toStartOf="@+id/guideline11"
-                    app:layout_constraintTop_toBottomOf="@+id/rgDate" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>

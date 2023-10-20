@@ -64,7 +64,6 @@
             android:inputType="numberDecimal"
             android:padding="12dp"
             android:textAlignment="textStart"
-            android:textAppearance="@style/input_text"
             android:textColor="@color/black"
             android:textColorHint="@color/light_gray"
             app:layout_constraintBottom_toTopOf="@+id/btnAdd"

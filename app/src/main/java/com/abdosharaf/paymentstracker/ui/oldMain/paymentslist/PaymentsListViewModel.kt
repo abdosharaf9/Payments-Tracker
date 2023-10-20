@@ -13,7 +13,7 @@ import javax.inject.Inject
 @HiltViewModel
 class PaymentsListViewModel @Inject constructor(private val repository: DatabaseRepository) : ViewModel() {
 
-    val list = repository.getAllPayments()
+    val list = repository.getAllExpenses()
 
     private val _itemsDeleted = MutableLiveData(false)
     val itemsDeleted: LiveData<Boolean>
@@ -21,7 +21,7 @@ class PaymentsListViewModel @Inject constructor(private val repository: Database
 
     fun deleteAll() {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.deleteAll()
+            repository.deleteAllExpenses()
         }
         _itemsDeleted.value = true
     }

@@ -25,21 +25,23 @@
 
         <EditText
             android:id="@+id/etBalance"
-            style="@style/text_input_edit_text"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
+            style="@style/input_style"
             android:layout_marginTop="@dimen/_20dp"
             android:background="@drawable/input_background"
             android:hint="@string/enter_new_balance_value"
+            android:importantForAutofill="no"
             android:inputType="numberDecimal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
         <TextView
-            style="@style/input_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:text="@string/egp"
+            android:textColor="@color/black"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@id/etBalance"
             app:layout_constraintEnd_toEndOf="@id/etBalance"
             app:layout_constraintTop_toTopOf="@id/etBalance" />

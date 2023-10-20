@@ -9,7 +9,7 @@
 
         <variable
             name="item"
-            type="com.abdosharaf.paymentstracker.models.PaymentItem" />
+            type="com.abdosharaf.paymentstracker.models.ExpenseItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

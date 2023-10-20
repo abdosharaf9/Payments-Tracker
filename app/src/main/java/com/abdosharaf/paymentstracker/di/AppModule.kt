@@ -28,7 +28,11 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideDao(db: PaymentDatabase) = db.paymentDao()
+    fun provideExpenseDao(db: PaymentDatabase) = db.expensesDao()
+
+    @Provides
+    @Singleton
+    fun provideIncomesDao(db: PaymentDatabase) = db.incomesDao()
 
     @Singleton
     @Provides

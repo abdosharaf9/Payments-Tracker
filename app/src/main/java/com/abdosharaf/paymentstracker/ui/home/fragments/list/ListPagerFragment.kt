@@ -41,21 +41,21 @@ class ListPagerFragment : BaseFragment() {
         when (type) {
             true -> {
                 binding.rvExpenses.isVisible = true
-                binding.btnExport.isVisible = true
+//                binding.btnExport.isVisible = true
                 binding.income.isVisible = false
                 setupRecycler()
             }
 
             false -> {
                 binding.rvExpenses.isVisible = false
-                binding.btnExport.isVisible = false
+//                binding.btnExport.isVisible = false
                 binding.income.isVisible = true
             }
         }
 
-        binding.btnExport.setOnClickListener {
+        /*binding.btnExport.setOnClickListener {
             exportPaymentsTable()
-        }
+        }*/
 
         return binding.root
     }

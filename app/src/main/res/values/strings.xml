@@ -41,4 +41,8 @@
     <string name="edit_your_balance">Edit Your Balance</string>
     <string name="enter_new_balance_value">Enter New Balance Value</string>
     <string name="edit">Edit</string>
+    <string name="export_payments">Export Payments</string>
+    <string name="choose_expense_date">Choose expense date:</string>
+    <string name="this_will_exceed_your_balance">This will exceed your current balance!</string>
+    <string name="you_are_flat_broke">You are flat broke 😢</string>
 </resources>

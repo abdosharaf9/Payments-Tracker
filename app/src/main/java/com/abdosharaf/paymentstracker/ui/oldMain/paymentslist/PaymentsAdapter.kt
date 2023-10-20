@@ -6,11 +6,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.abdosharaf.paymentstracker.databinding.ItemPaymentBinding
-import com.abdosharaf.paymentstracker.models.PaymentItem
+import com.abdosharaf.paymentstracker.models.ExpenseItem
 
-class PaymentsAdapter : ListAdapter<PaymentItem, PaymentViewHolder>(PaymentsDiffCallback) {
+class PaymentsAdapter : ListAdapter<ExpenseItem, PaymentViewHolder>(PaymentsDiffCallback) {
 
-    var onItemClicked: ((PaymentItem) -> Unit)? = null
+    var onItemClicked: ((ExpenseItem) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PaymentViewHolder {
         return PaymentViewHolder.from(parent)
@@ -25,10 +25,10 @@ class PaymentsAdapter : ListAdapter<PaymentItem, PaymentViewHolder>(PaymentsDiff
 class PaymentViewHolder private constructor(private val binding: ItemPaymentBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(paymentItem: PaymentItem, clickListener: ((PaymentItem) -> Unit)?) {
-        binding.item = paymentItem
+    fun bind(expenseItem: ExpenseItem, clickListener: ((ExpenseItem) -> Unit)?) {
+        binding.item = expenseItem
         binding.root.setOnClickListener {
-            clickListener?.invoke(paymentItem)
+            clickListener?.invoke(expenseItem)
         }
     }
 
@@ -42,12 +42,12 @@ class PaymentViewHolder private constructor(private val binding: ItemPaymentBind
     }
 }
 
-object PaymentsDiffCallback : DiffUtil.ItemCallback<PaymentItem>() {
-    override fun areItemsTheSame(oldItem: PaymentItem, newItem: PaymentItem): Boolean {
+object PaymentsDiffCallback : DiffUtil.ItemCallback<ExpenseItem>() {
+    override fun areItemsTheSame(oldItem: ExpenseItem, newItem: ExpenseItem): Boolean {
         return newItem.id == oldItem.id
     }
 
-    override fun areContentsTheSame(oldItem: PaymentItem, newItem: PaymentItem): Boolean {
+    override fun areContentsTheSame(oldItem: ExpenseItem, newItem: ExpenseItem): Boolean {
         return newItem == oldItem
     }
 }

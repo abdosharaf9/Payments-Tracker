@@ -2,23 +2,24 @@ package com.abdosharaf.paymentstracker.db
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.abdosharaf.paymentstracker.models.PaymentItem
+import com.abdosharaf.paymentstracker.Constants.EXPENSES_TABLE
+import com.abdosharaf.paymentstracker.models.ExpenseItem
 
 @Dao
 interface ExpensesDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun addPayment(item: PaymentItem)
+    suspend fun addExpense(item: ExpenseItem)
 
-    @Query("SELECT * FROM payments")
-    fun getAllPayments(): LiveData<List<PaymentItem>>
+    @Query("SELECT * FROM $EXPENSES_TABLE")
+    fun getAllExpenses(): LiveData<List<ExpenseItem>>
 
-    @Query("SELECT * FROM payments WHERE id = :id")
-    suspend fun getSinglePayment(id: Long): PaymentItem
+    @Query("SELECT * FROM $EXPENSES_TABLE WHERE id = :id")
+    suspend fun getSingleExpense(id: Long): ExpenseItem
 
-    @Query("DELETE FROM payments")
-    suspend fun deleteAll()
+    @Query("DELETE FROM $EXPENSES_TABLE")
+    suspend fun deleteAllExpenses()
 
     @Delete
-    suspend fun deletePayment(item: PaymentItem)
+    suspend fun deleteSingleExpense(item: ExpenseItem)
 }

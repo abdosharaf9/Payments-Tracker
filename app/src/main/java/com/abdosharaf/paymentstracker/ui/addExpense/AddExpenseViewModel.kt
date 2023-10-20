@@ -3,7 +3,7 @@ package com.abdosharaf.paymentstracker.ui.addExpense
 import androidx.databinding.ObservableArrayList
 import androidx.lifecycle.viewModelScope
 import com.abdosharaf.paymentstracker.base.BaseViewModel
-import com.abdosharaf.paymentstracker.models.PaymentItem
+import com.abdosharaf.paymentstracker.models.ExpenseItem
 import com.abdosharaf.paymentstracker.repository.DatabaseRepository
 import com.abdosharaf.paymentstracker.utils.FormErrors
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,7 +17,7 @@ class AddExpenseViewModel @Inject constructor(private val repository: DatabaseRe
 
     val errorList = ObservableArrayList<FormErrors>()
 
-    fun addNewExpense(item: PaymentItem) {
+    fun addNewExpense(item: ExpenseItem) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.addNewExpense(item)
         }

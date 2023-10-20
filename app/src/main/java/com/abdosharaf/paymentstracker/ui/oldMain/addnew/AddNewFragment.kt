@@ -8,7 +8,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.abdosharaf.paymentstracker.base.BaseFragment
 import com.abdosharaf.paymentstracker.databinding.FragmentAddNewBinding
-import com.abdosharaf.paymentstracker.models.PaymentItem
+import com.abdosharaf.paymentstracker.models.ExpenseItem
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -27,7 +27,7 @@ class AddNewFragment : BaseFragment() {
             val value = binding.etValue.text.toString()
             val description = binding.etDescription.text.toString()
 
-            viewModel.addNewItem(PaymentItem(name, value, description))
+            viewModel.addNewItem(ExpenseItem(name, value, description))
 
             findNavController().navigateUp()
         }
